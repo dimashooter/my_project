@@ -12,10 +12,8 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
-import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { fetchRecommendations } from
-    'pages/ArticleDetailsPage/model/services/fetchRecommendations/fetchRecommendations';
+
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { getArticleRecomendations } from
     '../../model/slices/articleDetailsRecommendationSlice';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -25,6 +23,8 @@ import {
 import cls from './ArticleDetailsPage.module.scss';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { fetchRecommendations } from '../../model/services/fetchRecommendations/fetchRecommendations';
+import { articleDetailsPageReducer } from '../../model/slices';
 
 interface ArticleDetailsPageProps {
     className?: string;

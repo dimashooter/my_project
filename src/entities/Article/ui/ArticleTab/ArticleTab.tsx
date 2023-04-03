@@ -1,6 +1,6 @@
-import { ArticleType } from 'entities/Article/model/types/article';
 import { memo, useMemo } from 'react';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { ArticleType } from '../../model/types/article';
 
 interface ArticleTabProps {
 className?: string

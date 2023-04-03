@@ -15,6 +15,7 @@ import { ArticleOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
+import { HStack } from 'shared/ui/Stack';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import cls from './articlesPageFilters.module.scss';
 
@@ -94,7 +95,7 @@ export const ArticlePageFilters = memo((props:ArticlePageFiltersProps) => {
     ], [t]);
     return (
         <div className={classNames(cls.ArticlePageFilters, {}, [className])}>
-            <div className={cls.filterWrapper}>
+            <HStack gap="16">
                 <Select
                     label={t('sort_by')}
                     options={sortOptions}
@@ -107,7 +108,7 @@ export const ArticlePageFilters = memo((props:ArticlePageFiltersProps) => {
                     onChange={onChangeOrder}
                     value={order}
                 />
-            </div>
+            </HStack>
             <Card className={cls.InputCard}>
                 <Input placeholder={t('search')} onChange={onChangeSearch} value={search} />
             </Card>
