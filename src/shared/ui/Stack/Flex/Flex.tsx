@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { DetailedHTMLProps, memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -28,7 +28,6 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32,
     4: cls.gap4,
 };
-
 export interface FlexProps {
 className?: string
 children?: React.ReactNode
@@ -36,12 +35,13 @@ justifyContent?:FlexJustify
 alignItems?:FlexAlign
 direction?:FlexDirection
 gap?:FlexGap
-max?:boolean
+max?:boolean,
+Tag?: keyof HTMLElementTagNameMap
 }
 
 export const Flex = memo((props:FlexProps) => {
     const {
-        className, children, justifyContent = 'start', alignItems = 'center', direction = 'row', gap, max,
+        className, children, justifyContent = 'start', alignItems = 'center', direction = 'row', gap, max, Tag = 'div',
     } = props;
 
     const mods: Mods = {
@@ -56,8 +56,8 @@ export const Flex = memo((props:FlexProps) => {
     ];
 
     return (
-        <div className={classNames(cls.Flex, mods, classes)}>
+        <Tag className={classNames(cls.Flex, mods, classes)}>
             {children}
-        </div>
+        </Tag>
     );
 });
