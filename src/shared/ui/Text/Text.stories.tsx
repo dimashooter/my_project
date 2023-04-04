@@ -62,3 +62,10 @@ SizeL.args = {
     text: 'Description Description Description Description',
     size: TextSize.L,
 };
+
+export const SizeЬ = Template.bind({});
+SizeЬ.args = {
+    title: 'Title lorem ipsun',
+    text: 'Description Description Description Description',
+    size: TextSize.M,
+};

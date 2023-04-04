@@ -51,7 +51,7 @@ module.exports = {
                 ignoreAttribute: ['data-testid', 'to', 'justifyContent',
                     'alignItems',
                     'direction',
-                    'gap'],
+                    'gap','Tag'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
