@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, memo } from 'react';
+import { memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -36,12 +36,11 @@ alignItems?:FlexAlign
 direction?:FlexDirection
 gap?:FlexGap
 max?:boolean,
-Tag?: keyof HTMLElementTagNameMap
 }
 
 export const Flex = memo((props:FlexProps) => {
     const {
-        className, children, justifyContent = 'start', alignItems = 'center', direction = 'row', gap, max, Tag = 'div',
+        className, children, justifyContent = 'start', alignItems = 'center', direction = 'row', gap, max,
     } = props;
 
     const mods: Mods = {
@@ -56,8 +55,8 @@ export const Flex = memo((props:FlexProps) => {
     ];
 
     return (
-        <Tag className={classNames(cls.Flex, mods, classes)}>
+        <div className={classNames(cls.Flex, mods, classes)}>
             {children}
-        </Tag>
+        </div>
     );
 });

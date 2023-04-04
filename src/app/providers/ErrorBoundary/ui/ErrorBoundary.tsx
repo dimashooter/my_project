@@ -38,8 +38,7 @@ class ErrorBoundary
                 </Suspense>
             );
         }
-
-        return children;
+        return <>{children}</>;
     }
 }
 

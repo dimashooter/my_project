@@ -1,0 +1,42 @@
+.ListBox {
+    position: relative;
+}
+
+.button {
+    border: none;
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ListItems {
+    position: absolute;
+    list-style: none;
+    background: var(--listbox-bg);
+    z-index: 10000;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+}
+
+.ListItem {
+    display: flex;
+    gap: 4px;
+    padding: 0.5rem 1rem;
+
+    svg path {
+        fill: var(--inverted-bg-color);
+    }
+}
+
+.ListItem.active {
+    background: var(--code-bg);
+}
+
+.top {
+    top: 45px;
+}
+
+.bottom {
+    bottom: 100%;
+}

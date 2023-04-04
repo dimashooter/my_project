@@ -51,7 +51,7 @@ module.exports = {
                 ignoreAttribute: ['data-testid', 'to', 'justifyContent',
                     'alignItems',
                     'direction',
-                    'gap','Tag'],
+                    'gap', 'Tag', 'as'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -63,6 +63,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'dk-plugin/path-checker': 'error',
+        'react/jsx-no-useless-fragment': 'off',
     },
     globals: {
         __IS_DEV__: true,
