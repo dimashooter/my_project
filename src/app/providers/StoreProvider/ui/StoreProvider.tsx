@@ -27,6 +27,7 @@ export const StoreProvider = (props: StoreProviderProps) => {
     );
 
     return (
+        // @ts-ignore
         <Provider store={store}>
             {children}
         </Provider>
