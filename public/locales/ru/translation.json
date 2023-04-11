@@ -39,5 +39,6 @@
   "desc": "Убыванию",
   "order_by": "Порядок",
   "search": "Поиск",
-  "recommendation": "Рекомендации"
+  "recommendation": "Рекомендации",
+  "user_profile": "Аккаунт пользователя"
 }
