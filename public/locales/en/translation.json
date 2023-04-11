@@ -40,5 +40,6 @@
   "order_by": "order",
   "search": "Search",
   "recommendation": "Recommendation",
-  "user_profile": "User profile"
+  "user_profile": "User profile",
+  "Error": "Eror when loading the page"
 }
