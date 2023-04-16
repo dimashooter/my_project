@@ -1,4 +1,8 @@
 export {
+    getUserRole, isUser, isUserAdmin, isUserCopyrighter,
+} from './model/selectors/getuserRole/getUserRole';
+
+export {
     getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
 

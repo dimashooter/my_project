@@ -7,6 +7,7 @@ import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PasswordInput } from 'shared/ui/PasswordInput/PasswordInput';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -63,8 +64,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     onChange={onChangeUsername}
                     value={username}
                 />
-                <Input
-                    type="text"
+                <PasswordInput
                     className={cls.input}
                     placeholder={t('Введите пароль')}
                     onChange={onChangePassword}

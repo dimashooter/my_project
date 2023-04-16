@@ -1,5 +1,7 @@
 .InputWrapper {
     display: flex;
+    align-items: flex-end;
+    width: 100%;
 }
 
 .placeholder {
@@ -11,12 +13,9 @@
     border: none;
     outline: none;
     width: 100%;
-    color: transparent;
-    text-shadow: 0 0 0 var(--primary-color);
-
-    &:focus {
-        outline: none;
-    }
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding: 10px;
 }
 
 .caretWrapper {
@@ -24,30 +23,8 @@
     position: relative;
 }
 
-.caret {
-    height: 3px;
-    width: 9px;
-    background: var(--primary-color);
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    animation: blink 0.7s forwards infinite;
-}
+
 
 .readonly {
     opacity: 0.7;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.01;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }

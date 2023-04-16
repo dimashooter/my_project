@@ -5,9 +5,12 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage/AdminPanelPage';
+import { UserRole } from 'entities/User/model/types/user';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
+    roles?: UserRole[]
 }
 
 export enum AppRoutes {
@@ -16,6 +19,7 @@ export enum AppRoutes {
     PROFILE = 'profile',
     ARTICLES = 'articles',
     ARTICLE_DETAILS = 'article_details',
+    ADMIN_PANEL = 'admin_panel',
     // last
     NOT_FOUND = 'not_found',
 }
@@ -27,6 +31,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
     // последний
+    [AppRoutes.ADMIN_PANEL]: '/admin',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -53,6 +58,12 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: `${RoutePath.article_details}:id`,
         element: <ArticleDetailsPage />,
         authOnly: true,
+    },
+    [AppRoutes.ADMIN_PANEL]: {
+        path: RoutePath.admin_panel,
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: [UserRole.ADMIN, UserRole.COPYRIGHTER],
     },
     // last
     [AppRoutes.NOT_FOUND]: {
