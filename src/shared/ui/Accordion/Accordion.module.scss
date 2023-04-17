@@ -1,0 +1,53 @@
+.Accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    flex-shrink: 1;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.Accordion_wrapper {
+    width: 100%;
+    flex-basis: 100px;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: flex-basis 0.3s linear;
+}
+
+.accordion_panel {
+    border-radius: 20px;
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 111;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.accordion_panel.active {
+    span {
+        transform: translate(-50%, -150%);
+        opacity: 1;
+        transition: transform 0.7s linear;
+    }
+}
+
+.Accordion_wrapper.active {
+    flex-basis: 450px;
+    transition: flex-basis 0.3s linear;
+}
+
+.img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}

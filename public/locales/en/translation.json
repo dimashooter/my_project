@@ -39,5 +39,7 @@
   "desc": "desc",
   "order_by": "order",
   "search": "Search",
-  "recommendation": "Recommendation"
+  "recommendation": "Recommendation",
+  "user_profile": "User profile",
+  "Error": "Eror when loading the page"
 }

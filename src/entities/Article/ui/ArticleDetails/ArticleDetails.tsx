@@ -107,6 +107,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         className={cls.avatar}
                     />
                 </HStack>
+                <div />
                 <Text
                     className={cls.title}
                     title={article?.title}

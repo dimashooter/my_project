@@ -13,6 +13,7 @@ import { ArticlePageFilters } from 'features/articlesPageFilters';
 import { ArticleOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { useSearchParams } from 'react-router-dom';
+import { ArticleInfiniteList } from 'features/ArticleInfiniteList/ArticleInfiniteList';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -39,10 +40,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const articles = useSelector(getArticles.selectAll);
-
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
     const search = useSelector(getArticlesPageSearch);
@@ -67,11 +64,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     order={order}
                     search={search}
                 />
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                />
+                <ArticleInfiniteList />
             </Page>
         </DynamicModuleLoader>
     );
