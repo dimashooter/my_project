@@ -1,7 +1,3 @@
-.ListBox {
-    position: relative;
-}
-
 .button {
     border: none;
     background: none;
@@ -31,12 +27,4 @@
 
 .ListItem.active {
     background: var(--code-bg);
-}
-
-.top {
-    top: 45px;
-}
-
-.bottom {
-    bottom: 100%;
 }

@@ -4,10 +4,17 @@ import React, { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
-import { MyDropdown } from 'shared/ui/Dropdown/Dropdown';
+import { getUserAuthData, isUserAdmin, userActions } from 'entities/User';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Route } from 'react-router-dom';
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { HPopover, MyDropdown } from 'shared/ui/Popup';
+import { NotificationList } from 'entities/Notification';
+import { NotificationButton } from 'features/NotificationButton/NotificationButton';
+import { AvatarDropdown } from 'features/AvatarDropdown/ui/AvatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -29,34 +36,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         setIsAuthModal(true);
     }, []);
 
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
-
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <MyDropdown
-                    direction="bottom left"
-                    className={cls.dropdown}
-                    items={[
-                        {
-                            content: (t('user_profile')),
-                            href: RoutePath.profile + authData.id,
-                        },
-                        {
-                            content: t('Выйти'), onClick: onLogout,
-                        },
-                    ]}
-                    trigger={(
-                        <Button theme={ButtonTheme.CLEAR}>
-                            <Avatar
-                                size={30}
-                                src={authData.avatar}
-                            />
-                        </Button>
-                    )}
-                />
+                <AppLink to={RoutePath.about}>About</AppLink>
+                <HStack gap="16" className={cls.actions}>
+                    <NotificationButton />
+                    <AvatarDropdown className={cls.dropdown} />
+                </HStack>
+
             </header>
         );
     }

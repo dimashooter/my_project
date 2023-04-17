@@ -1,5 +1,6 @@
 {
   "": "",
+  "Admin_panel": "Admin_panel",
   "Error": "Error",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
@@ -13,6 +14,8 @@
   "by_view": "by_view",
   "decrement": "decrement",
   "desc": "desc",
+  "forbidden": "forbidden",
+  "forbidden_text": "forbidden_text",
   "increment": "increment",
   "no_id": "no_id",
   "order_by": "order_by",

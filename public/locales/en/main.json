@@ -1,3 +1,4 @@
 {
-  "no_id": "Profile not found"
+  "no_id": "Profile not found",
+  "forbidden_text": "access denied"
 }

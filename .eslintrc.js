@@ -48,7 +48,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'justifyContent',
+                ignoreAttribute: ['data-testid', 'to', 'justifyContent', 'border',
                     'alignItems',
                     'direction',
                     'gap', 'Tag', 'as', 'alt'],

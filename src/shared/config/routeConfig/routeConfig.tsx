@@ -7,6 +7,7 @@ import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { AdminPanelPage } from 'pages/AdminPanelPage/AdminPanelPage';
 import { UserRole } from 'entities/User/model/types/user';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
@@ -22,6 +23,7 @@ export enum AppRoutes {
     ADMIN_PANEL = 'admin_panel',
     // last
     NOT_FOUND = 'not_found',
+    FORBIDDEN = 'forbidden',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -33,6 +35,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     // последний
     [AppRoutes.ADMIN_PANEL]: '/admin',
     [AppRoutes.NOT_FOUND]: '*',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
+
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -69,5 +73,9 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
         element: <NotFoundPage />,
+    },
+    [AppRoutes.FORBIDDEN]: {
+        path: RoutePath.forbidden,
+        element: <ForbiddenPage />,
     },
 };

@@ -1,50 +1,45 @@
 import { Fragment, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from '../../../AppLink/AppLink';
 import cls from './Dropdown.module.scss';
-import { AppLink } from '../AppLink/AppLink';
+import PopupCls from '../../styles/popup.module.scss';
+import { directionClasses, directionType } from '../../styles/variables';
 
 type Links = {
-    disabled?:boolean
-    content?:ReactNode
+    disabled?: boolean
+    content?: ReactNode
     onClick?: () => void
     href?: string
 }
-type directionType = 'top left' | 'top right' | 'bottom left' | 'bottom right'
-
-const directionClasses:Record<directionType, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
 
 interface DropdownProps {
-    className?:string
+    className?: string
     items?: Links[]
-    trigger:ReactNode
-    direction?:directionType
+    trigger: ReactNode
+    direction?: directionType
 }
 
-export function MyDropdown(props:DropdownProps) {
+export function MyDropdown(props: DropdownProps) {
     const {
-        className, items, trigger, direction = 'bottom right',
+        className, items, trigger, direction = 'bottom left',
     } = props;
 
     const optionClasses = [directionClasses[direction]];
     return (
-        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <Menu.Button className={cls.btn}>
+        <Menu as="div" className={classNames('', {}, [className, PopupCls.relative])}>
+            <Menu.Button className={cls.trigger}>
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, optionClasses)}>
-                {items?.map((item) => {
-                    const content = ({ active }: {active: boolean}) => (
+                {items?.map((item, idx) => {
+                    const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
                             className={classNames(cls.item, { [cls.active]: active })}
+                            key={idx}
                         >
                             {item.content}
                         </button>
@@ -52,14 +47,14 @@ export function MyDropdown(props:DropdownProps) {
 
                     if (item.href) {
                         return (
-                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled} key={idx}>
                                 {content}
                             </Menu.Item>
                         );
                     }
 
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                        <Menu.Item as={Fragment} disabled={item.disabled} key={idx}>
                             {content}
                         </Menu.Item>
                     );
