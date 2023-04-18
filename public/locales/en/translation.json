@@ -2,7 +2,6 @@
   "Тестовый пример": "Test example",
   "Перевод": "Translate",
   "Главная страница": "Main page",
-  "Язык": "English",
   "новый перевод": "новый перевод",
   "Страница не найдена": "Page not found",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
@@ -11,7 +10,6 @@
   "Главная": "Main",
   "О сайте": "About us",
   "Переключить": "Переключить",
-  "Короткий язык": "En",
   "Войти": "Login",
   "increment": "increment",
   "decrement": "decrement",
@@ -42,6 +40,6 @@
   "recommendation": "Recommendation",
   "user_profile": "User profile",
   "Error": "Eror when loading the page",
-  "Admin_panel": "Admin panel",
+  "Admin_panel": "Admin panel"
 
 }
