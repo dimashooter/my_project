@@ -1,7 +1,7 @@
 import { Fragment, ReactNode, useState } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import SelectIcon from 'shared/assets/icons/done-20-20.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
+import SelectIcon from '@/shared/assets/icons/done-20-20.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../../../Stack';
 import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';

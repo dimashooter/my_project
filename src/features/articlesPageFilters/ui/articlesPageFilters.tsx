@@ -1,21 +1,21 @@
 import {
     ArticleSortType, ArticleTab, ArticleView, ArticleViewSelector,
-} from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
-import { getArticlesPageType, getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+} from '@/entities/Article';
+import { ArticleType } from '@/entities/Article/model/types/article';
+import { getArticlesPageType, getArticlesPageView } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { articlesPageActions } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleOrder } from 'shared/types';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleOrder } from '@/shared/types';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { Select, SelectOption } from '@/shared/ui/Select/Select';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './articlesPageFilters.module.scss';
 
 interface ArticlePageFiltersProps {

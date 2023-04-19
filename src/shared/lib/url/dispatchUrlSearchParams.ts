@@ -1,8 +1,8 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { ArticleSortType } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
-import { ArticleOrder } from 'shared/types';
+import { ArticleSortType } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article/model/types/article';
+import { articlesPageActions } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
+import { ArticleOrder } from '@/shared/types';
 
 export function dispatchUrlSearchParams(param:OptionalRecord<string, string>, dispatch:Dispatch) {
     Object.entries(param).forEach((elem) => {

@@ -1,6 +1,6 @@
 import { Popover } from '@headlessui/react';
 import { ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { directionClasses, directionType } from '../../styles/variables';
 import cls from '../../styles/popup.module.scss';
 
