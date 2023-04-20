@@ -40,6 +40,9 @@
   "recommendation": "Recommendation",
   "user_profile": "User profile",
   "Error": "Eror when loading the page",
-  "Admin_panel": "Admin panel"
-
+  "Admin_panel": "Admin panel",
+  "add": "add",
+  "cancel": "cancel",
+  "left_cooment": "Rate the article",
+  "left_feedback": "left a feedback please, it helps to  improve our adrticles"
 }

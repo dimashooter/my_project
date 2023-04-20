@@ -6,8 +6,8 @@ import { HPopover } from '@/shared/ui/Popup';
 import NotificationIcon from '@/shared/assets/icons/Notification.svg';
 import { NotificationList } from '@/entities/Notification';
 import { detectDevice } from '@/shared/lib/helpers/detectDevice';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface NotificationButtonProps {
     className?: string
@@ -33,12 +33,12 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             {
                 detectDevice()
                     ? (
-                        <AnimationProvider>
+                        <>
                             {trigger}
                             <Drawer isOpen={isDrawer} onClose={onCloseDrawer}>
                                 <NotificationList isMobile={detectDevice()} />
                             </Drawer>
-                        </AnimationProvider>
+                        </>
                     )
                     : (
                         <HPopover

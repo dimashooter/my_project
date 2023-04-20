@@ -1,12 +1,14 @@
-import { Accordion } from '@/shared/ui/Accordion/Accordion';
 import { useTranslation } from 'react-i18next';
-import { HStack } from '@/shared/ui/Stack';
+import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { Page } from '@/widgets/Page/Page';
 
 const MainPage = () => {
     const { t } = useTranslation();
 
     return (
-        <Accordion />
+        <Page>
+            test
+        </Page>
     );
 };
 

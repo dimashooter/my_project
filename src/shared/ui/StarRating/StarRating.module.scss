@@ -1,0 +1,18 @@
+.star {
+  fill: transparent;
+  transition: 0.4s linear;
+  cursor: pointer;
+}
+
+.star path {
+  stroke: var(--inverted-bg-color);
+  stroke-width: 2px;
+}
+
+.hovered {
+  fill: var(--inverted-bg-color)
+}
+
+.selected {
+  cursor: auto;
+}

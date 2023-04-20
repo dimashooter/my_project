@@ -28,7 +28,7 @@ export function MyDropdown(props: DropdownProps) {
     const optionClasses = [directionClasses[direction]];
     return (
         <Menu as="div" className={classNames('', {}, [className, PopupCls.relative])}>
-            <Menu.Button className={cls.trigger}>
+            <Menu.Button as="div" className={cls.trigger}>
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, optionClasses)}>

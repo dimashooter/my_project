@@ -1,10 +1,10 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from '@/entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useDispatch, useSelector } from 'react-redux';
+import { ArticleDetails } from '@/entities/Article';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
@@ -16,6 +16,7 @@ import {
 import { fetchRecommendations } from '../../model/services/fetchRecommendations/fetchRecommendations';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -42,12 +43,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     });
 
     if (!id) {
-        return (
-            <Page>
-                {t('Статья не найдена')}
-            </Page>
-        );
+        return null;
     }
+
+
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -56,6 +55,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     {t('Назад к списку')}
                 </Button>
                 <ArticleDetails id={id} />
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationList />
                 <ArticleDetailsComments id={id} />
             </Page>

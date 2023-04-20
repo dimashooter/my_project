@@ -635,6 +635,12 @@
       "userId": "1",
       "text": "test",
       "id": "wsGTDXc"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "test",
+      "id": "YgwLeQ4"
     }
   ],
   "users": [
@@ -680,6 +686,79 @@
       "city": "Mariupol",
       "username": "dimashooter",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": "4",
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": "5",
+      "feedback": "Хорошая статья",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "3",
+      "rate": "3",
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 4,
+      "feedback": "test",
+      "id": "6DUrdve"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 2,
+      "feedback": "",
+      "id": "Zu6Etft"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 4,
+      "feedback": "норм статья",
+      "id": "N4P5QnX"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 2,
+      "id": "KuYGjyv"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": "4",
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": "5",
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "3",
+      "rate": "3",
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }
