@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DefaultRootState, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
@@ -20,6 +20,8 @@ import { ValidateProfileError } from '../../model/types/editableProfileSchema';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { EditableProfileCardHeader } from '../EditableProfileHeader/EditableProfileCardHeader';
+import { ProfileRating } from '@/features/ProfileRating';
+import { VStack } from '@/shared/ui/Stack';
 
 interface EditableProfileCardProps {
     className?: string
@@ -88,7 +90,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <VStack max gap="16" className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text
@@ -111,7 +113,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+                <ProfileRating profileId={id} />
+            </VStack>
         </DynamicModuleLoader>
     );
 });

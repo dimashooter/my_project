@@ -742,23 +742,28 @@
     {
       "id": "1",
       "rate": "4",
-      "feedback": "Хорошая статья",
+      "feedback": "Хороший профиль",
       "userId": "1",
       "profileId": "1"
     },
     {
       "id": "2",
       "rate": "5",
-      "feedback": "Хорошая статья",
-      "userId": "1",
+      "feedback": "Хороший профиль",
+      "userId": "2",
       "profileId": "1"
     },
     {
-      "id": "3",
-      "rate": "3",
-      "feedback": "Хорошая статья",
+      "profileId": "2",
       "userId": "1",
-      "profileId": "2"
+      "rate": 3,
+      "id": "tOFArbr"
+    },
+    {
+      "profileId": "2",
+      "userId": "2",
+      "rate": 5,
+      "id": "4bBu9ag"
     }
   ]
 }

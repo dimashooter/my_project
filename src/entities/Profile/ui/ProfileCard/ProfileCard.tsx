@@ -1,5 +1,5 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
 import { Loader } from '@/shared/ui/Loader/Loader';
@@ -49,7 +49,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <VStack className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <VStack max className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
                 <Loader />
             </VStack>
         );
@@ -57,7 +57,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <VStack className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <VStack max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -73,7 +73,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <VStack alignItems="start" gap="8" className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack max alignItems="start" gap="8" className={classNames(cls.ProfileCard, mods, [className])}>
             {data?.avatar && (
                 <HStack max justifyContent="center">
                     <Avatar src={data?.avatar} />
