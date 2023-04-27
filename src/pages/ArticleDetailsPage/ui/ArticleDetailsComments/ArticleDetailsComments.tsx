@@ -1,15 +1,16 @@
-import { CommentList } from '@/entities/Comment';
-import { AddCommentForm } from '@/features/addCommentForm';
-import { memo, useCallback } from 'react';
+import { Suspense, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { CommentList } from '@/entities/Comment';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleDetailsCommentsProps {
     className?: string
@@ -30,13 +31,15 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
         dispatch(fetchCommentsByArticleId(id));
     });
     return (
-        <div>
+        <VStack gap="16" max>
             <Text size={TextSize.L} title={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm onSendComment={onSendComment} />
+            </Suspense>
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}
             />
-        </div>
+        </VStack>
     );
 });

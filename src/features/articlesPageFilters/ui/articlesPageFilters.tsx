@@ -1,13 +1,13 @@
-import {
-    ArticleSortType, ArticleTab, ArticleView, ArticleViewSelector,
-} from '@/entities/Article';
-import { ArticleType } from '@/entities/Article/model/types/article';
-import { getArticlesPageType, getArticlesPageView } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageActions } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import {
+    ArticleSortType, ArticleTab, ArticleView, ArticleViewSelector,
+    ArticleType,
+} from '@/entities/Article';
+import { getArticlesPageType, getArticlesPageView } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { articlesPageActions } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
@@ -58,7 +58,7 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
         debouncedFetchData();
     }, [dispatch, debouncedFetchData]);
 
-    const onTabClick = useCallback(({ value }) => {
+    const onChangeType = useCallback((value: ArticleType) => {
         dispatch(articlesPageActions.setType(value));
         dispatch(articlesPageActions.setPage(1));
         fetchData();
@@ -109,10 +109,10 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
                 />
             </HStack>
             <Card className={cls.InputCard}>
-                <Input placeholder={t('search')} onChange={onChangeSearch} value={search} />
+                <Input placeholder={t('search') || ''} onChange={onChangeSearch} value={search} />
             </Card>
             <ArticleViewSelector view={view} onViewClick={onChangeView} />
-            <ArticleTab onTabClick={onTabClick} type={type} />
+            <ArticleTab onChangeType={onChangeType} type={type} />
         </div>
     );
 });

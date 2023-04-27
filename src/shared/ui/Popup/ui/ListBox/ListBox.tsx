@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import SelectIcon from '@/shared/assets/icons/done-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -41,7 +41,7 @@ export const ListBox = (props: ListBoxProps) => {
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button className={cls.button}>
+                <HListBox.Button as="div" className={cls.button}>
                     <Button>
                         {value ?? defaultValue}
                     </Button>

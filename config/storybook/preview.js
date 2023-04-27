@@ -12,6 +12,7 @@ export const parameters = {
             date: /Date$/,
         },
     },
+
 };
 
 addDecorator(StyleDecorator);

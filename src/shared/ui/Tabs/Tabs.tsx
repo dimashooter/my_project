@@ -1,4 +1,4 @@
-import { memo, ReactNode, useCallback } from 'react';
+import { memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card, CardTheme } from '../Card/Card';
 import { HStack } from '../Stack';

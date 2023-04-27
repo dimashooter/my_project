@@ -1,7 +1,7 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { ArticleList } from '@/entities/Article';
-import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/Stack';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import cls from './articleRecommendation.module.scss';

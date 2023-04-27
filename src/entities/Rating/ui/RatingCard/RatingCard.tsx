@@ -14,8 +14,8 @@ import { Card } from '@/shared/ui/Card/Card';
 
 interface RatingCardProps {
     className?: string
-    title?: string
-    feedbackTitle?: string
+    title?: string | null
+    feedbackTitle?: string | null
     hasFeedback?: boolean
     onCancel?: (startsCount: number) => void
     onAccept?: (startsCount: number, feedBack?: string) => void
@@ -53,7 +53,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const modalContent = (
         <VStack gap="32">
             <Text title={feedbackTitle} align={TextAlign.CENTER} />
-            <Input placeholder={t('Добавить комментарий')} value={feedback} onChange={setFeedback} />
+            <Input placeholder={t('Добавить комментарий') || ''} value={feedback} onChange={setFeedback} />
         </VStack>
     );
 

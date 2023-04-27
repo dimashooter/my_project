@@ -5,7 +5,6 @@ import { getArticles } from '@/pages/ArticlesPage/model/slices/articlesPageSlice
 import { ArticleList } from '@/entities/Article';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from
     '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { Loader } from '@/shared/ui/Loader/Loader';
 import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleInfiniteListProps {

@@ -2,7 +2,6 @@ import { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '../Button/Button';
 import { Input, InputProps } from '../Input/Input';
-import { HStack } from '../Stack';
 import cls from './Passowrdinput.module.scss';
 
 interface PassowrdInputProps extends InputProps {

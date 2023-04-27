@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { ArticleRatingProps } from './ArticleRating';
 import { Loader } from '@/shared/ui/Loader/Loader';
 

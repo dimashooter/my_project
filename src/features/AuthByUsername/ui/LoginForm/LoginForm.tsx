@@ -1,9 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -60,13 +60,13 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     autofocus
                     type="text"
                     className={cls.input}
-                    placeholder={t('Введите username')}
+                    placeholder={t('Введите username') || ''}
                     onChange={onChangeUsername}
                     value={username}
                 />
                 <PasswordInput
                     className={cls.input}
-                    placeholder={t('Введите пароль')}
+                    placeholder={t('Введите пароль') || ''}
                     onChange={onChangePassword}
                     value={password}
                 />

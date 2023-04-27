@@ -1,5 +1,5 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
@@ -28,8 +28,8 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagsType> = {
 
 interface TextProps {
     className?: string;
-    title?: string;
-    text?: string;
+    title?: string | null;
+    text?: string | null;
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;

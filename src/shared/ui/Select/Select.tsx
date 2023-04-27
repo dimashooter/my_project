@@ -1,5 +1,5 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ChangeEvent, memo, useMemo } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 import { HStack } from '../Stack';
 
@@ -11,7 +11,7 @@ const typedMemo: <T>(c: T) => T = memo;
 
 interface SelectProps<T extends string> {
     className?: string;
-    label?: string;
+    label?: string | null;
     options?: SelectOption<T>[];
     value?: T;
     onChange?: (value: T) => void;

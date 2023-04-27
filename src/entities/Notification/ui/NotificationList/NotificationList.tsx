@@ -1,8 +1,8 @@
 import { memo, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { VStack } from '@/shared/ui/Stack';
-import { toast } from 'react-hot-toast';
 import { useNotifications } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';

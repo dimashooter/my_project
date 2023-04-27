@@ -1,4 +1,3 @@
-import { useConstant } from '@react-spring/shared';
 import {
     createContext, useContext, useEffect, useMemo, useRef, useState,
 } from 'react';
