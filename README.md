@@ -1,4 +1,4 @@
-## Launch project
+## Launch project :smile:
 
 
 ```
@@ -23,17 +23,17 @@
   ```
 ----
 
-  ## Proejct architecture
+  ## Project architecture
 
     Project was wrote with feature sliced metodology 
 
-    link for the docs - [feature-sliced-design](https://feature-sliced.design/docs)
+  link for the docs - [feature-sliced-design](https://feature-sliced.design/docs)
 
 ----
   ## Translation
 
-    the project uses a plugin for translations i18n
+  the project uses a plugin for translations i18n
 
-    link for the docs - [i18n](https://www.i18next.com/)
+  link for the docs - [i18n](https://www.i18next.com/)
 
 
