@@ -11,4 +11,4 @@ export { ArticleSortType } from './model/types/article';
 export { ArticleType } from './model/types/article';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
-export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
+export { ArticleViewSelector } from '../../features/ArticleViewSelector/ArticleViewSelector';
