@@ -38,6 +38,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             trigger={(
                 <Button theme={ButtonTheme.CLEAR}>
                     <Avatar
+                        fallbackInverted
                         size={30}
                         src={authData!.avatar}
                     />
