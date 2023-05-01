@@ -6,7 +6,7 @@ import { ArticleDetails } from '@/entities/Article';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteArticles } from '@/shared/config/routeConfig/routeConfig';
 import { Page } from '@/widgets/Page/Page';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import {
@@ -33,7 +33,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     const navigate = useNavigate();
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     useInitialEffect(() => {
