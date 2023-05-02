@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
-type FlexJustify = 'center' | 'start' | 'end' | 'between'
-type FlexAlign = 'start' |'center' | 'end'
-type FlexDirection = 'column' | 'row'
-type FlexGap = '4' | '8' | '16' | '32'
+type FlexJustify = 'center' | 'start' | 'end' | 'between';
+type FlexAlign = 'start' | 'center' | 'end';
+type FlexDirection = 'column' | 'row';
+type FlexGap = '4' | '8' | '16' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -29,18 +29,24 @@ const gapClasses: Record<FlexGap, string> = {
     4: cls.gap4,
 };
 export interface FlexProps {
-className?: string
-children?: React.ReactNode
-justifyContent?:FlexJustify
-alignItems?:FlexAlign
-direction?:FlexDirection
-gap?:FlexGap
-max?:boolean,
+    className?: string;
+    children?: React.ReactNode;
+    justifyContent?: FlexJustify;
+    alignItems?: FlexAlign;
+    direction?: FlexDirection;
+    gap?: FlexGap;
+    max?: boolean;
 }
 
-export const Flex = memo((props:FlexProps) => {
+export const Flex = memo((props: FlexProps) => {
     const {
-        className, children, justifyContent = 'start', alignItems = 'center', direction = 'row', gap, max,
+        className,
+        children,
+        justifyContent = 'start',
+        alignItems = 'center',
+        direction = 'row',
+        gap,
+        max,
     } = props;
 
     const mods: Mods = {
@@ -55,8 +61,6 @@ export const Flex = memo((props:FlexProps) => {
     ];
 
     return (
-        <div className={classNames(cls.Flex, mods, classes)}>
-            {children}
-        </div>
+        <div className={classNames(cls.Flex, mods, classes)}>{children}</div>
     );
 });

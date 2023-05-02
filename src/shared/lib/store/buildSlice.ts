@@ -11,19 +11,20 @@ import { useDispatch } from 'react-redux';
 export function buildSlice<
     State,
     CaseReducers extends SliceCaseReducers<State>,
-    Name extends string = string
-    >(options: CreateSliceOptions<State, CaseReducers, Name>) {
+    Name extends string = string,
+>(options: CreateSliceOptions<State, CaseReducers, Name>) {
     const slice = createSlice(options);
 
     const useActions = () => {
         const dispatch = useDispatch();
 
         return useMemo(
-            () => bindActionCreators<
-    // @ts-ignore
-    CaseReducerActions<CaseReducers>,
-    CaseReducerActions<CaseReducers>
-    >(slice.actions, dispatch),
+            () =>
+                bindActionCreators<
+                    // @ts-ignore
+                    CaseReducerActions<CaseReducers>,
+                    CaseReducerActions<CaseReducers>
+                >(slice.actions, dispatch),
             [dispatch],
         );
     };

@@ -1,18 +1,24 @@
 import {
-    MutableRefObject, useCallback, useEffect, useRef, useState,
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 
 interface ModalProps {
-  onClose?:() => void
-  isOpen?:Boolean
-  animationDelay:number
+    onClose?: () => void;
+    isOpen?: Boolean;
+    animationDelay: number;
 }
 
-export function useModal(props:ModalProps) {
+export function useModal(props: ModalProps) {
     const { animationDelay, isOpen, onClose } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
@@ -30,11 +36,14 @@ export function useModal(props:ModalProps) {
     }, [onClose, animationDelay]);
 
     // Новые ссылки!!!
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                closeHandler();
+            }
+        },
+        [closeHandler],
+    );
 
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -51,6 +60,9 @@ export function useModal(props:ModalProps) {
         };
     }, [isOpen, onKeyDown]);
     return {
-        isClosing, isMounted, closeHandler, onContentClick,
+        isClosing,
+        isMounted,
+        closeHandler,
+        onContentClick,
     };
 }

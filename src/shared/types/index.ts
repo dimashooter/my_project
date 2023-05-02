@@ -1,1 +1,1 @@
-export type ArticleOrder = 'asc' | 'desc'
+export type ArticleOrder = 'asc' | 'desc';

@@ -3,12 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getArticles } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { ArticleList } from '@/entities/Article';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from
-    '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleInfiniteListProps {
-    className?: string
+    className?: string;
 }
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     const { className } = props;

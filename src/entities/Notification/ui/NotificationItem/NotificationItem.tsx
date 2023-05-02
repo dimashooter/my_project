@@ -7,14 +7,17 @@ import { Notification } from '../../model/type/notification';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
-    className?: string
-    item: Notification
+    className?: string;
+    item: Notification;
 }
 export const NotificationItem = memo((props: NotificationItemProps) => {
     const { className, item } = props;
 
     const content = (
-        <Card theme={CardTheme.OUTLINE} className={classNames(cls.NotificationItem, {}, [className])}>
+        <Card
+            theme={CardTheme.OUTLINE}
+            className={classNames(cls.NotificationItem, {}, [className])}
+        >
             <Text title={item.title} />
             <Text text={item.description} />
         </Card>

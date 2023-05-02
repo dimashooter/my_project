@@ -1,11 +1,11 @@
 ## Launch project :smile:
 
-
 ```
   npm install -  upload dependencies
   npm run start:dev - start the project
 ```
-----
+
+---
 
 ```
   SCRIPTS
@@ -20,20 +20,20 @@
   `npm run storybook:build` - build storybook
   `npm run prepare` - precommit huski hooks
 
-  ```
-----
+```
 
-  ## Project architecture
+---
 
-    Project was wrote with feature sliced metodology 
+## Project architecture
 
-  link for the docs - [feature-sliced-design](https://feature-sliced.design/docs)
+    Project was wrote with feature sliced metodology
 
-----
-  ## Translation
+link for the docs - [feature-sliced-design](https://feature-sliced.design/docs)
 
-  the project uses a plugin for translations i18n
+---
 
-  link for the docs - [i18n](https://www.i18next.com/)
+## Translation
 
+the project uses a plugin for translations i18n
 
+link for the docs - [i18n](https://www.i18next.com/)

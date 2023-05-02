@@ -11,8 +11,8 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
-    roles?: UserRole[]
-}
+    roles?: UserRole[];
+};
 
 export const getRouteMain = () => '/';
 export const getRouteAbout = () => '/about';
@@ -42,10 +42,16 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLES]: getRouteArticles(),
     [AppRoutes.ARTICLE_DETAILS]: getRouteArticleDetails(':id'), // + :id
     // последний
+<<<<<<< HEAD
     [AppRoutes.ADMIN_PANEL]: getRouteAdmin(),
     [AppRoutes.NOT_FOUND]: getRouteNotFound(),
     [AppRoutes.FORBIDDEN]: getRouteForbidden(),
 
+=======
+    [AppRoutes.ADMIN_PANEL]: '/admin',
+    [AppRoutes.NOT_FOUND]: '*',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
+>>>>>>> 9b32611 (added prettier settings)
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {

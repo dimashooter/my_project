@@ -25,10 +25,7 @@ function App() {
                     <Sidebar />
                     {inited && <AppRouter />}
                 </div>
-                <Toaster
-                    position="bottom-center"
-                    reverseOrder={false}
-                />
+                <Toaster position="bottom-center" reverseOrder={false} />
             </Suspense>
         </div>
     );

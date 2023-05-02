@@ -37,9 +37,7 @@ describe('articleDetails.test', () => {
     test('should return isLoading', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-
                 isLoading: true,
-
             },
         };
         expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);

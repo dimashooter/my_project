@@ -6,8 +6,8 @@ import { getRouteForbidden, getRouteMain } from '@/shared/config/routeConfig/rou
 import { UserRole } from '@/entities/User/model/types/user';
 
 interface RequireAuthProps {
-    roles?: UserRole[]
-    children: JSX.Element
+    roles?: UserRole[];
+    children: JSX.Element;
 }
 
 export function RequireAuth({ children, roles }: RequireAuthProps) {

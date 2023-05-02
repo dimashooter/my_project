@@ -9,25 +9,32 @@ import PopupCls from '../../styles/popup.module.scss';
 import { directionClasses, directionType } from '../../styles/variables';
 
 type ListBoxItem = {
-    content: ReactNode
+    content: ReactNode;
     value: string;
-    disabled?: boolean
-}
+    disabled?: boolean;
+};
 
 interface ListBoxProps {
-    label?: string
-    className?: string
+    label?: string;
+    className?: string;
     items?: ListBoxItem[];
     value?: string;
-    defaultValue?: string
-    onChange: <T extends string>(value: T) => void
-    readonly?: boolean
-    direction?: directionType
+    defaultValue?: string;
+    onChange: <T extends string>(value: T) => void;
+    readonly?: boolean;
+    direction?: directionType;
 }
 
 export const ListBox = (props: ListBoxProps) => {
     const {
-        items, defaultValue, value, className, onChange, label, readonly, direction = 'top right',
+        items,
+        defaultValue,
+        value,
+        className,
+        onChange,
+        label,
+        readonly,
+        direction = 'top right',
     } = props;
 
     const directionClass = [directionClasses[direction]];
@@ -42,11 +49,11 @@ export const ListBox = (props: ListBoxProps) => {
                 onChange={onChange}
             >
                 <HListBox.Button as="div" className={cls.button}>
-                    <Button>
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button>{value ?? defaultValue}</Button>
                 </HListBox.Button>
-                <HListBox.Options className={classNames(cls.ListItems, {}, directionClass)}>
+                <HListBox.Options
+                    className={classNames(cls.ListItems, {}, directionClass)}
+                >
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}
@@ -56,7 +63,11 @@ export const ListBox = (props: ListBoxProps) => {
                         >
                             {({ active, selected }) => (
                                 <li
-                                    className={classNames(cls.ListItem, { [cls.active]: active }, [])}
+                                    className={classNames(
+                                        cls.ListItem,
+                                        { [cls.active]: active },
+                                        [],
+                                    )}
                                 >
                                     {selected && <SelectIcon />}
                                     {item.content}

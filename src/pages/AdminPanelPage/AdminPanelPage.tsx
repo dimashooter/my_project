@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page/Page';
 
 interface AdminPanelProps {
-    className?: string
+    className?: string;
 }
 export const AdminPanelPage = memo((props: AdminPanelProps) => {
     const { className } = props;

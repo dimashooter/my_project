@@ -12,26 +12,29 @@ export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
     ThunkConfig<string>
-    >(
-        'articlesPage/initArticlesPage',
-        async (params, thunkApi) => {
-            const { getState, dispatch } = thunkApi;
-            const orderFromUrl = params.get('order') as ArticleOrder;
-            const searchFromUrl = params.get('search') as string;
-            const sortFromUrl = params.get('sort') as ArticleSortType;
-            const typeFromUrl = params.get('type') as ArticleType;
+>('articlesPage/initArticlesPage', async (params, thunkApi) => {
+    const { getState, dispatch } = thunkApi;
+    const orderFromUrl = params.get('order') as ArticleOrder;
+    const searchFromUrl = params.get('search') as string;
+    const sortFromUrl = params.get('sort') as ArticleSortType;
+    const typeFromUrl = params.get('type') as ArticleType;
 
-            dispatchUrlSearchParams({
-                order: orderFromUrl, search: searchFromUrl, sort: sortFromUrl, type: typeFromUrl,
-            }, dispatch);
-            // dispatchUrlSearchParams({ search: searchFromUrl }, dispatch);
-            // dispatchUrlSearchParams({ sort: sortFromUrl }, dispatch);
-
-            const inited = getArticlesPageInited(getState());
-
-            if (!inited) {
-                dispatch(articlesPageActions.initState());
-                dispatch(fetchArticlesList({}));
-            }
+    dispatchUrlSearchParams(
+        {
+            order: orderFromUrl,
+            search: searchFromUrl,
+            sort: sortFromUrl,
+            type: typeFromUrl,
         },
+        dispatch,
     );
+    // dispatchUrlSearchParams({ search: searchFromUrl }, dispatch);
+    // dispatchUrlSearchParams({ sort: sortFromUrl }, dispatch);
+
+    const inited = getArticlesPageInited(getState());
+
+    if (!inited) {
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({}));
+    }
+});

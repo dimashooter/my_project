@@ -13,17 +13,23 @@ import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { Card } from '@/shared/ui/Card/Card';
 
 interface RatingCardProps {
-    className?: string
-    title?: string | null
-    feedbackTitle?: string | null
-    hasFeedback?: boolean
-    onCancel?: (startsCount: number) => void
-    onAccept?: (startsCount: number, feedBack?: string) => void
-    rate?: number
+    className?: string;
+    title?: string | null;
+    feedbackTitle?: string | null;
+    hasFeedback?: boolean;
+    onCancel?: (startsCount: number) => void;
+    onAccept?: (startsCount: number, feedBack?: string) => void;
+    rate?: number;
 }
 export const RatingCard = memo((props: RatingCardProps) => {
     const {
-        className, title, feedbackTitle, onCancel, hasFeedback, onAccept, rate = 0,
+        className,
+        title,
+        feedbackTitle,
+        onCancel,
+        hasFeedback,
+        onAccept,
+        rate = 0,
     } = props;
 
     const { t } = useTranslation();
@@ -31,14 +37,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -53,7 +62,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const modalContent = (
         <VStack gap="32">
             <Text title={feedbackTitle} align={TextAlign.CENTER} />
-            <Input placeholder={t('Добавить комментарий') || ''} value={feedback} onChange={setFeedback} />
+            <Input
+                placeholder={t('Добавить комментарий') || ''}
+                value={feedback}
+                onChange={setFeedback}
+            />
         </VStack>
     );
 
@@ -61,41 +74,42 @@ export const RatingCard = memo((props: RatingCardProps) => {
         <Card max className={classNames(cls.RatingCard, {}, [className])}>
             <VStack max gap="16" alignItems="center">
                 <Text title={starsCount ? t('Спасибо за оценку!') : title} />
-                <StarRating onSelect={onSelectStars} selectedStar={starsCount} />
-                {
-                    detectDevice()
-                        ? (
-                            <Drawer isOpen={isModalOpen} onClose={cancelHandle}>
-                                {modalContent}
-                                <HStack max gap="16" justifyContent="end" className={cls.marginTop}>
-                                    <Button
-                                        theme={ButtonTheme.BACKGROUND_INVERTED}
-                                        fullWidth
-                                        onClick={acceptHandle}
-                                    >
-                                        {t('add')}
-
-                                    </Button>
-                                </HStack>
-                            </Drawer>
-                        )
-                        : (
-                            <Modal isOpen={isModalOpen} onClose={cancelHandle}>
-                                {modalContent}
-                                <HStack max gap="16" justifyContent="end">
-                                    <Button
-                                        onClick={cancelHandle}
-                                        theme={ButtonTheme.OUTLINE_RED}
-                                    >
-                                        {t('cancel')}
-
-                                    </Button>
-                                    <Button onClick={acceptHandle}>{t('add')}</Button>
-                                </HStack>
-                            </Modal>
-                        )
-                }
-
+                <StarRating
+                    onSelect={onSelectStars}
+                    selectedStar={starsCount}
+                />
+                {detectDevice() ? (
+                    <Drawer isOpen={isModalOpen} onClose={cancelHandle}>
+                        {modalContent}
+                        <HStack
+                            max
+                            gap="16"
+                            justifyContent="end"
+                            className={cls.marginTop}
+                        >
+                            <Button
+                                theme={ButtonTheme.BACKGROUND_INVERTED}
+                                fullWidth
+                                onClick={acceptHandle}
+                            >
+                                {t('add')}
+                            </Button>
+                        </HStack>
+                    </Drawer>
+                ) : (
+                    <Modal isOpen={isModalOpen} onClose={cancelHandle}>
+                        {modalContent}
+                        <HStack max gap="16" justifyContent="end">
+                            <Button
+                                onClick={cancelHandle}
+                                theme={ButtonTheme.OUTLINE_RED}
+                            >
+                                {t('cancel')}
+                            </Button>
+                            <Button onClick={acceptHandle}>{t('add')}</Button>
+                        </HStack>
+                    </Modal>
+                )}
             </VStack>
         </Card>
     );

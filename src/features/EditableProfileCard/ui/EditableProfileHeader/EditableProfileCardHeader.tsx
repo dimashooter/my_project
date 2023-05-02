@@ -18,10 +18,10 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
-    const {
-        className,
-    } = props;
+export const EditableProfileCardHeader = (
+    props: EditableProfileCardHeaderProps,
+) => {
+    const { className } = props;
 
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
@@ -43,38 +43,41 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
     }, [dispatch]);
 
     return (
-        <HStack max className={classNames(cls.EditableProfileCardHeader, {}, [className])}>
+        <HStack
+            max
+            className={classNames(cls.EditableProfileCardHeader, {}, [
+                className,
+            ])}
+        >
             <Text title={t('Профиль')} />
             {canEdit && (
                 <div className={cls.btnsWrapper}>
-                    {readonly
-                        ? (
+                    {readonly ? (
+                        <Button
+                            className={cls.editBtn}
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onEdit}
+                        >
+                            {t('Редактировать')}
+                        </Button>
+                    ) : (
+                        <>
                             <Button
                                 className={cls.editBtn}
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}
+                                theme={ButtonTheme.OUTLINE_RED}
+                                onClick={onCancelEdit}
                             >
-                                {t('Редактировать')}
+                                {t('Отменить')}
                             </Button>
-                        )
-                        : (
-                            <>
-                                <Button
-                                    className={cls.editBtn}
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onCancelEdit}
-                                >
-                                    {t('Отменить')}
-                                </Button>
-                                <Button
-                                    className={cls.saveBtn}
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onSave}
-                                >
-                                    {t('Сохранить')}
-                                </Button>
-                            </>
-                        )}
+                            <Button
+                                className={cls.saveBtn}
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onSave}
+                            >
+                                {t('Сохранить')}
+                            </Button>
+                        </>
+                    )}
                 </div>
             )}
         </HStack>

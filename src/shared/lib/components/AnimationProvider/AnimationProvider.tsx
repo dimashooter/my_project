@@ -1,14 +1,19 @@
 import {
-    createContext, useContext, useEffect, useMemo, useRef, useState,
+    createContext,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
 } from 'react';
 
-type SpringType = typeof import('@react-spring/web')
-type GestureType = typeof import('@use-gesture/react')
+type SpringType = typeof import('@react-spring/web');
+type GestureType = typeof import('@use-gesture/react');
 
 interface AnimationContextProps {
-    Spring?: SpringType
-    Gesture?: GestureType
-    isLoaded?: boolean
+    Spring?: SpringType;
+    Gesture?: GestureType;
+    isLoaded?: boolean;
 }
 
 const AnimationContext = createContext<AnimationContextProps>({});
@@ -20,7 +25,11 @@ const asyncFetchAnimation = async () => {
     ]);
 };
 
-export const AnimationProvider = ({ children }: { children: React.ReactNode }) => {
+export const AnimationProvider = ({
+    children,
+}: {
+    children: React.ReactNode;
+}) => {
     const SpringRef = useRef<SpringType>();
     const GestureRef = useRef<GestureType>();
 

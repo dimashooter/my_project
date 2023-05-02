@@ -19,7 +19,7 @@ export enum TextSize {
     L = 'size_l',
 }
 
-export type HeaderTagsType = 'h1' | 'h2' | 'h3'
+export type HeaderTagsType = 'h1' | 'h2' | 'h3';
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagsType> = {
     [TextSize.L]: 'h1',
     [TextSize.M]: 'h2',

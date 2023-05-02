@@ -8,8 +8,8 @@ import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 interface NotificationListProps {
-    className?: string
-    isMobile?: boolean
+    className?: string;
+    isMobile?: boolean;
 }
 export const NotificationList = memo((props: NotificationListProps) => {
     const { className, isMobile = false } = props;
@@ -27,7 +27,10 @@ export const NotificationList = memo((props: NotificationListProps) => {
     }, [isError]);
     if (isLoading) {
         return (
-            <VStack gap="16" className={classNames(cls.NotificationList, mods, [className])}>
+            <VStack
+                gap="16"
+                className={classNames(cls.NotificationList, mods, [className])}
+            >
                 <Skeleton width={500} height={80} border="8px" />
                 <Skeleton width={500} height={80} border="8px" />
                 <Skeleton width={500} height={80} border="8px" />
@@ -36,12 +39,13 @@ export const NotificationList = memo((props: NotificationListProps) => {
     }
 
     return (
-        <VStack gap="16" className={classNames(cls.NotificationList, mods, [className])}>
-            {
-                notifications?.map((notification, idx) => (
-                    <NotificationItem item={notification} key={idx} />
-                ))
-            }
+        <VStack
+            gap="16"
+            className={classNames(cls.NotificationList, mods, [className])}
+        >
+            {notifications?.map((notification, idx) => (
+                <NotificationItem item={notification} key={idx} />
+            ))}
         </VStack>
     );
 });

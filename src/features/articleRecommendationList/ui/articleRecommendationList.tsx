@@ -8,30 +8,40 @@ import cls from './articleRecommendation.module.scss';
 import { useArticleRecommendationList } from '../api/articleRecommendationApi';
 
 interface ArticleRecommendationListProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleRecommendationList = memo((props: ArticleRecommendationListProps) => {
-    const { className } = props;
-    const { t } = useTranslation('article-details');
-    const { data: articles, isLoading, isError } = useArticleRecommendationList(3);
-    if (isLoading) {
-        return <Loader />;
-    }
-    if (isError) {
-        return <Text title={t('throw error')} />;
-    }
+export const ArticleRecommendationList = memo(
+    (props: ArticleRecommendationListProps) => {
+        const { className } = props;
+        const { t } = useTranslation('article-details');
+        const {
+            data: articles,
+            isLoading,
+            isError,
+        } = useArticleRecommendationList(3);
+        if (isLoading) {
+            return <Loader />;
+        }
+        if (isError) {
+            return <Text title={t('throw error')} />;
+        }
 
-    return (
-        <VStack gap="8">
-            <Text size={TextSize.L} className={cls.commentTitle} title={t('recommendation')} />
-            <ArticleList
-                // eslint-disable-next-line i18next/no-literal-string
-                target="_blank"
-                className={cls.recommendations}
-                articles={articles}
-                isLoading={isLoading}
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack gap="8">
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t('recommendation')}
+                />
+                <ArticleList
+                    // eslint-disable-next-line i18next/no-literal-string
+                    target="_blank"
+                    className={cls.recommendations}
+                    articles={articles}
+                    isLoading={isLoading}
+                />
+            </VStack>
+        );
+    },
+);

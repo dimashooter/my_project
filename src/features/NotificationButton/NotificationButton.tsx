@@ -9,7 +9,7 @@ import { detectDevice } from '@/shared/lib/helpers/detectDevice';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface NotificationButtonProps {
-    className?: string
+    className?: string;
 }
 export const NotificationButton = memo((props: NotificationButtonProps) => {
     const { className } = props;
@@ -29,25 +29,18 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     );
     return (
         <div className={classNames('', {}, [className])}>
-            {
-                detectDevice()
-                    ? (
-                        <>
-                            {trigger}
-                            <Drawer isOpen={isDrawer} onClose={onCloseDrawer}>
-                                <NotificationList isMobile={detectDevice()} />
-                            </Drawer>
-                        </>
-                    )
-                    : (
-                        <HPopover
-                            direction="bottom left"
-                            trigger={trigger}
-                        >
-                            <NotificationList />
-                        </HPopover>
-                    )
-            }
+            {detectDevice() ? (
+                <>
+                    {trigger}
+                    <Drawer isOpen={isDrawer} onClose={onCloseDrawer}>
+                        <NotificationList isMobile={detectDevice()} />
+                    </Drawer>
+                </>
+            ) : (
+                <HPopover direction="bottom left" trigger={trigger}>
+                    <NotificationList />
+                </HPopover>
+            )}
         </div>
     );
 });

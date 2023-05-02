@@ -1,8 +1,6 @@
 export { ArticleTab } from './ui/ArticleTab/ArticleTab';
 
-export {
-    ArticleDetails,
-} from './ui/ArticleDetails/ArticleDetails';
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export { ArticleView } from './model/types/article';
 export type { Article } from './model/types/article';

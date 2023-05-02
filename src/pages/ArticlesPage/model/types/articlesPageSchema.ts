@@ -12,9 +12,9 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     page: number;
     limit: number;
     hasMore: boolean;
-    search:string;
-    order: ArticleOrder
-    sort : ArticleSortType
+    search: string;
+    order: ArticleOrder;
+    sort: ArticleSortType;
     _inited: boolean;
-    type:ArticleType
+    type: ArticleType;
 }

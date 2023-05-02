@@ -2,13 +2,13 @@ import { Rating } from '@/entities/Rating';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 interface getProfileRating {
-  userId:string,
-  profileId:string
+    userId: string;
+    profileId: string;
 }
 interface rateProfile {
-    userId:string,
-    profileId:string
-    rate:number
+    userId: string;
+    profileId: string;
+    rate: number;
 }
 
 const ProfileRatingApi = rtkApi.injectEndpoints({

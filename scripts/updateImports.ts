@@ -7,7 +7,7 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const files = project.getSourceFiles();
 
-function isAbsolute(value:string) {
+function isAbsolute(value: string) {
     const paths = ['app', 'widgets', 'pages', 'shared', 'entities', 'features'];
     return paths.some((path) => value.startsWith(path));
 }

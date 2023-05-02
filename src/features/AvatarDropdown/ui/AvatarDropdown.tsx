@@ -9,7 +9,7 @@ import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 
 interface AvatarDropdownProps {
-    className?: string
+    className?: string;
 }
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const { t } = useTranslation();
@@ -32,18 +32,15 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     href: getRouteProfile(authData!.id),
                 },
                 {
-                    content: t('Выйти'), onClick: onLogout,
+                    content: t('Выйти'),
+                    onClick: onLogout,
                 },
             ]}
-            trigger={(
+            trigger={
                 <Button theme={ButtonTheme.CLEAR}>
-                    <Avatar
-                        fallbackInverted
-                        size={30}
-                        src={authData!.avatar}
-                    />
+                    <Avatar fallbackInverted size={30} src={authData!.avatar} />
                 </Button>
-            )}
+            }
         />
     );
 });

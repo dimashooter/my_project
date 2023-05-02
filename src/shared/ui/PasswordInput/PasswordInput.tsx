@@ -5,12 +5,10 @@ import { Input, InputProps } from '../Input/Input';
 import cls from './Passowrdinput.module.scss';
 
 interface PassowrdInputProps extends InputProps {
-className?: string
+    className?: string;
 }
-export const PasswordInput = memo((props:PassowrdInputProps) => {
-    const {
-        className, onChange, value, ...otherProps
-    } = props;
+export const PasswordInput = memo((props: PassowrdInputProps) => {
+    const { className, onChange, value, ...otherProps } = props;
     // const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     //     onChange?.(e.target.value);
     // };
@@ -19,6 +17,7 @@ export const PasswordInput = memo((props:PassowrdInputProps) => {
     const onHandleShow = useCallback(() => {
         setShow(!show);
     }, [show]);
+
     return (
         <div className={classNames(cls.PasswordInput, {}, [className])}>
             <Input
@@ -28,7 +27,13 @@ export const PasswordInput = memo((props:PassowrdInputProps) => {
                 value={value}
                 {...otherProps}
             />
-            <Button className={cls.show_btn} type="button" onClick={onHandleShow}>{show ? 'hide' : 'show' }</Button>
+            <Button
+                className={cls.show_btn}
+                type="button"
+                onClick={onHandleShow}
+            >
+                {show ? 'hide' : 'show'}
+            </Button>
         </div>
     );
 });

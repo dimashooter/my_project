@@ -4,9 +4,7 @@ import { Page } from '@/widgets/Page/Page';
 
 const ForbiddenPage = () => {
     const { t } = useTranslation('main');
-    return (
-        <Page>{t('forbidden_text')}</Page>
-    );
+    return <Page>{t('forbidden_text')}</Page>;
 };
 
 export default ForbiddenPage;

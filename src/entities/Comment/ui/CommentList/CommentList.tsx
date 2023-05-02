@@ -29,8 +29,8 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <VStack max className={classNames(cls.CommentList, {}, [className])}>
-            {comments?.length
-                ? comments.map((comment) => (
+            {comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
                         isLoading={isLoading}
                         className={cls.comment}
@@ -38,7 +38,9 @@ export const CommentList = memo((props: CommentListProps) => {
                         key={comment.id}
                     />
                 ))
-                : <Text text={t('Комментарии отсутствуют')} />}
+            ) : (
+                <Text text={t('Комментарии отсутствуют')} />
+            )}
         </VStack>
     );
 });
