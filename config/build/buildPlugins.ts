@@ -3,8 +3,8 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import { BuildOptions } from './types/config';
 import CopyPlugin from 'copy-webpack-plugin';
+import { BuildOptions } from './types/config';
 
 export function buildPlugins({
     paths, isDev, apiUrl, project,
