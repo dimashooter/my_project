@@ -692,6 +692,15 @@
         "USER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "profile": [
@@ -800,6 +809,12 @@
       "userId": "2",
       "rate": 5,
       "id": "4bBu9ag"
+    },
+    {
+      "profileId": "1",
+      "userId": "",
+      "rate": 3,
+      "id": "VSdIbDf"
     }
   ]
 }

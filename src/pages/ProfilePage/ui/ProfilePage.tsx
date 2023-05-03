@@ -16,7 +16,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         return <Text text={t('no_id')} />;
     }
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page data-testid='ProfilePage' className={classNames('', {}, [className])}>
             <EditableProfileCard id={id} />
         </Page>
     );
