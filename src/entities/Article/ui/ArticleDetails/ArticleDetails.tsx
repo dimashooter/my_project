@@ -13,7 +13,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
@@ -115,22 +115,24 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         className={cls.avatar}
                     />
                 </HStack>
-                <div />
-                <Text
-                    className={cls.title}
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
-                <HStack>
-                    <Icon className={cls.icon} Svg={EyeIcon} />
-                    <Text text={String(article?.views)} />
-                </HStack>
-                <HStack>
-                    <Icon className={cls.icon} Svg={CalendarIcon} />
-                    <Text text={article?.createdAt} />
-                </HStack>
-                {article?.blocks.map(renderBlock)}
+                <VStack max gap='4' data-testid='ArticleDetails.Info'>
+
+                    <Text
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack>
+                        <Icon className={cls.icon} Svg={EyeIcon} />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack>
+                        <Icon className={cls.icon} Svg={CalendarIcon} />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                    {article?.blocks.map(renderBlock)}
+                </VStack>
             </>
         );
     }

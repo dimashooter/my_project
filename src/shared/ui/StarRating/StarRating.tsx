@@ -57,6 +57,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                     height={size}
                     key={idx}
                     onClick={onClick(star)}
+                    data-testid={`Rating.${star}`}
+                    date-selected={currentStarsCounts >= star}
                 />
             ))}
         </div>

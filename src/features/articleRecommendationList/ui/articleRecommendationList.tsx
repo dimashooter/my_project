@@ -28,7 +28,7 @@ export const ArticleRecommendationList = memo(
         }
 
         return (
-            <VStack gap="8">
+            <VStack gap="8" data-testid='ArticleRecommendation.List'>
                 <Text
                     size={TextSize.L}
                     className={cls.commentTitle}

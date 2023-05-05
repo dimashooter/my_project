@@ -16,7 +16,9 @@
         // Для абсолютного импорта
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": [
+                "./src/*"
+            ]
         },
         // esModuleInterop позволяет работать с пакетами, которые используют
         // common js как с обычными пакета с помощью import (require() module.export) = common js
@@ -46,5 +48,10 @@
         "./src/**/*.tsx",
         "src/features/EditableProfileCard/ui/EditableProfileHeader/EditableProfileCardHeader.module..scss",
         "index.ts"
-    ]
+    ],
+    "exclude": [
+        "node_modules",
+        "cypress",
+        "./cypress.config.ts"
+    ],
 }

@@ -98,6 +98,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 </HStack>
             )}
             <Input
+                data-testid='ProfilePage.firstname'
                 value={data?.first}
                 placeholder={t('Ваше имя') || ''}
                 className={cls.input}

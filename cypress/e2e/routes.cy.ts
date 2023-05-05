@@ -28,7 +28,9 @@ describe('routing', () => {
 
   describe('Authenticated user', () => {
     beforeEach( () => {
-      cy.login()
+      cy.login().then(res => {
+        cy.visit(`/profile/${res.id}`)
+      })
     })
     it('passes', () => {
       cy.visit('/profile/1')
@@ -36,7 +38,7 @@ describe('routing', () => {
     })
     it('passes', () => {
         cy.visit('articles')
-      cy.get(getByTestId('ArticlesPage')).should('exist')
+      cy.getById('ArticlesPage').should('exist')
     })
   })
 })

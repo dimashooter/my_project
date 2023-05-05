@@ -1,4 +1,4 @@
 export function getByTestId(name:string):string{
-  return `[data-testid=${name}]`
+  return `[data-testid="${name}"]`
 
 }

@@ -4,6 +4,7 @@ import { EditableProfileCard } from '@/features/EditableProfileCard/ui/EditableP
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page/Page';
 import { Text } from '@/shared/ui/Text/Text';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ProfilePageProps {
     className?: string;
@@ -16,8 +17,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         return <Text text={t('no_id')} />;
     }
     return (
-        <Page data-testid='ProfilePage' className={classNames('', {}, [className])}>
-            <EditableProfileCard id={id} />
+        <Page data-testid="ProfilePage" className={classNames('', {}, [className])}>
+            <VStack gap="16" max>
+                <EditableProfileCard id={id} />
+            </VStack>
         </Page>
     );
 };
