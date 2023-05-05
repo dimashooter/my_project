@@ -1,13 +1,11 @@
 .NotificationList {
-  min-height: 120px;
-  max-height: 300px;
-  overflow-y: auto;
-  min-width: 500px;
-
-
+    min-height: 120px;
+    max-height: 300px;
+    overflow-y: auto;
+    min-width: 500px;
 }
 
 .isMobile {
-  max-height: fit-content;
-  min-width: 100%;
+    max-height: fit-content;
+    min-width: 100%;
 }

@@ -1,41 +1,41 @@
 .relative {
-  position: relative;
+    position: relative;
 }
 
 .optionsBottomLeft {
-  top: 100%;
-  right: 0;
+    top: 100%;
+    right: 0;
 }
 
 .optionsBottomRight {
-  top: 100%;
-  left: 0;
+    top: 100%;
+    left: 0;
 }
 
 .optionsTopRight {
-  bottom: 100%;
-  left: 0;
+    bottom: 100%;
+    left: 0;
 }
 
 .optionsTopLeft {
-  right: 0;
-  bottom: 100%;
+    right: 0;
+    bottom: 100%;
 }
 
 .trigger {
-  background: none;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  cursor: pointer;
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
 .panel {
-  background: var(--card-bg);
-  position: absolute;
-  z-index: 10000;
-  border-radius: 8px;
-  width: fit-content;
-  padding: 1rem;
+    background: var(--card-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 1rem;
 }
