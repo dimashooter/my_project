@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/deprecated/Tabs/Tabs';
 import { ArticleType } from '../../model/types/article';
 
 interface ArticleTabProps {

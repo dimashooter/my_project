@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import {
@@ -23,7 +23,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { EditableProfileCardHeader } from '../EditableProfileHeader/EditableProfileCardHeader';
 import { ProfileRating } from '@/features/ProfileRating';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 interface EditableProfileCardProps {
     className?: string;

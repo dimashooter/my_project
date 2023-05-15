@@ -7,7 +7,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { getRouteArticles } from '@/shared/config/routeConfig/routeConfig';
 import { Page } from '@/widgets/Page/Page';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
@@ -33,6 +33,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const onBackToList = useCallback(() => {
         navigate(getRouteArticles());
     }, [navigate]);
+
+
+    const counter = console.log('off')
 
     if (!id) {
         return null;

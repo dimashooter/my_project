@@ -10,6 +10,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/test';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -47,14 +48,31 @@ export const Page = memo((props: PageProps) => {
     }, 500);
 
     return (
-        <section
-            data-testid={props['data-testid'] ?? 'Page'}
-            ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
-            onScroll={onScroll}
-        >
-            {children}
-            <div ref={triggerRef} />
-        </section>
+        <ToggleFeatures
+            name='isAppRedesigned'
+            on={
+                <section
+                    data-testid={props['data-testid'] ?? 'Page'}
+                    ref={wrapperRef}
+                    className={classNames(cls.Page_redesigned, {}, [className])}
+                    onScroll={onScroll}
+                >
+                    {children}
+                    <div ref={triggerRef} />
+                </section>
+            }
+            off={
+                <section
+                    data-testid={props['data-testid'] ?? 'Page'}
+                    ref={wrapperRef}
+                    className={classNames(cls.Page, {}, [className])}
+                    onScroll={onScroll}
+                >
+                    {children}
+                    <div ref={triggerRef} />
+                </section>
+            }
+        />
+
     );
 });

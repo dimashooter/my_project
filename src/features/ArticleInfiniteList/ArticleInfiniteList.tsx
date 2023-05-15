@@ -8,7 +8,7 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 
 interface ArticleInfiniteListProps {
     className?: string;

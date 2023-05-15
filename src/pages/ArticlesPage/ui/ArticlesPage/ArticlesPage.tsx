@@ -21,6 +21,7 @@ import {
     getArticlesPageSearch,
     getArticlesPageSort,
 } from '../../model/selectors/articlesPageSelectors';
+import { ArticlePageGreeting } from '@/pages/ArticlePageGreeting/ArticlePageGreeting';
 
 interface ArticlesPageProps {
     className?: string;
@@ -56,6 +57,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             >
                 <ArticlePageFilters sort={sort} order={order} search={search} />
                 <ArticleInfiniteList />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );

@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text/Text';
 import { ArticleList } from '@/entities/Article';
-import { VStack } from '@/shared/ui/Stack';
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
 import cls from './articleRecommendation.module.scss';
 import { useArticleRecommendationList } from '../api/articleRecommendationApi';
 

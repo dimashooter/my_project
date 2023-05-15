@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
 import { ProfileRatingProps } from './ProfileRating';
 
 const ProfileRatingLazy = lazy(

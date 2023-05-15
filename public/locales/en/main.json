@@ -1,6 +1,8 @@
 {
-    "no_id": "Profile not found",
-    "forbidden_text": "access denied",
-    "Короткий язык": "En",
-    "Язык": "English"
+  "no_id": "Profile not found",
+  "forbidden_text": "access denied",
+  "Короткий язык": "En",
+  "Язык": "English",
+  "greeting": "Welcome to articles page!",
+  "text_greeting": "You can check new articles here."
 }

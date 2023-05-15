@@ -2,15 +2,13 @@
     margin-top: 10px;
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: var(--accent-redesigned)
 }
 
 .link {
     margin-left: 10px;
     opacity: 1;
-}
-
-.icon {
-    fill: var(--inverted-primary-color);
 }
 
 .collapsed {
@@ -19,4 +17,29 @@
         transition: 0.2s opacity;
         width: 0;
     }
+}
+
+.itemRedesigned {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+    text-decoration: none;
+}
+
+.collapsedRedesigned {
+    padding: 0 8px;
+
+    .link {
+        margin-left: 0;
+        opacity: 0;
+        width: 0;
+    }
+
+}
+
+
+.active {
+    background: linear-gradient(89.97deg, rgba(94, 211, 243, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+    border-left: 2px solid #5ED3F3;
 }

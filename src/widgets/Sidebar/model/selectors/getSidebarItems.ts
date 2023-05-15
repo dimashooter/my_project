@@ -3,10 +3,10 @@ import { getUserAuthData } from '@/entities/User';
 import {
     getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
 } from '@/shared/config/routeConfig/routeConfig';
-import MainIcon from '@/shared/assets/icons/main-20-20.svg';
-import AboutIcon from '@/shared/assets/icons/about-20-20.svg';
-import ProfileIcon from '@/shared/assets/icons/profile-20-20.svg';
-import ArticleIcon from '@/shared/assets/icons/article-20-20.svg';
+import MainIcon from '@/shared/assets/icons/Home.svg';
+import ArticleIcon from '@/shared/assets/icons/doc.svg';
+import  AboutIcon from '@/shared/assets/icons/Info.svg';
+import ProfileIcon from '@/shared/assets/icons/Avatar.svg';
 import { SidebarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {

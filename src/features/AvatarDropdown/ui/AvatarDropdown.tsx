@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { MyDropdown } from '@/shared/ui/Popup';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { MyDropdown } from '@/shared/ui/deprecated/Popup';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { getRouteAdmin, getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 
 interface AvatarDropdownProps {
     className?: string;

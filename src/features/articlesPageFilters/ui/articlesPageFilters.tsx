@@ -18,10 +18,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleOrder } from '@/shared/types';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
-import { Select, SelectOption } from '@/shared/ui/Select/Select';
-import { HStack } from '@/shared/ui/Stack';
+import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { Input } from '@/shared/ui/deprecated/Input/Input';
+import { Select, SelectOption } from '@/shared/ui/deprecated/Select/Select';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import cls from './articlesPageFilters.module.scss';
 
 interface ArticlePageFiltersProps {

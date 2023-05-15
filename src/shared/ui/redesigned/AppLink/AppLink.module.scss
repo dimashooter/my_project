@@ -1,0 +1,24 @@
+.primary {
+    color: var(--text-redesigned);
+
+    &:hover {
+        color: var(--accent-redesigned);
+    }
+}
+
+.secondary {
+    color: var(--text-redesigned);
+
+    &:hover {
+        color: var(--accent-redesigned);
+    }
+}
+
+.red {
+    color: var(--cancel-redesigned);
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+}
