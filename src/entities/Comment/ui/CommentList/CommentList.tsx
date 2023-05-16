@@ -5,7 +5,7 @@ import { Text } from '@/shared/ui/deprecated/Text/Text';
 import cls from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface CommentListProps {
     className?: string;

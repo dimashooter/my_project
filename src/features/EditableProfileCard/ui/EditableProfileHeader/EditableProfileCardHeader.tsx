@@ -7,7 +7,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';

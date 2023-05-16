@@ -6,7 +6,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
 import { AvatarDropdown } from '@/features/AvatarDropdown/ui/AvatarDropdown';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationButton } from '@/features/NotificationButton/NotificationButton';
 import cls from './Navbar.module.scss';
 

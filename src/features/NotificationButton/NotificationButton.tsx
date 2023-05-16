@@ -1,12 +1,15 @@
 import { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon/Icon';
-import { HPopover } from '@/shared/ui/deprecated/Popup';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { HPopover as PopoverDeprecated } from '@/shared/ui/deprecated/Popup';
 import NotificationIcon from '@/shared/assets/icons/Notification.svg';
 import { NotificationList } from '@/entities/Notification';
 import { detectDevice } from '@/shared/lib/helpers/detectDevice';
 import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
+import { HPopover } from '@/shared/ui/redesigned/Popup';
 
 interface NotificationButtonProps {
     className?: string;
@@ -23,11 +26,17 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         setIsDrawer(true);
     }, []);
     const trigger = (
-        <Button theme={ButtonTheme.CLEAR} onClick={onShowDrawer}>
-            <Icon Svg={NotificationIcon} inverted />
-        </Button>
+        <ToggleFeatures name='isAppRedesigned' on={
+            <Icon size={24} Svg={NotificationIcon} clickable
+                onClick={onShowDrawer} />
+        } off={
+            <ButtonDeprecated theme={ButtonTheme.CLEAR} onClick={onShowDrawer}>
+                <IconDeprecated Svg={NotificationIcon} inverted />
+            </ButtonDeprecated>} />
+
     );
     return (
+
         <div className={classNames('', {}, [className])}>
             {detectDevice() ? (
                 <>
@@ -37,9 +46,18 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                     </Drawer>
                 </>
             ) : (
-                <HPopover direction="bottom left" trigger={trigger}>
-                    <NotificationList />
-                </HPopover>
+                <ToggleFeatures name='isAppRedesigned' on={
+                    <HPopover direction="bottom left" trigger={trigger}>
+                        <NotificationList />
+                    </HPopover>
+                } off={
+                    <PopoverDeprecated direction="bottom left" trigger={trigger}>
+                        <NotificationList />
+                    </PopoverDeprecated>
+                }
+                />
+
+
             )}
         </div>
     );

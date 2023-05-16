@@ -2,11 +2,6 @@
     position: relative;
 }
 
-.menu {
-    border-radius: 18px;
-    border: 1px solid var(--accent-redesigned);
-}
-
 .optionsBottomLeft {
     top: 100%;
     right: 0;
@@ -36,8 +31,12 @@
     cursor: pointer;
 }
 
+.active {
+    background: var(--light-bg-redesigned);
+}
+
 .panel {
-    background: var(--card-bg);
+    background: var(--dark-bg-redesigned);
     position: absolute;
     z-index: 10000;
     border-radius: 8px;

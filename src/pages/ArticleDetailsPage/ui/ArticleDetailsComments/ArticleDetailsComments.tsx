@@ -10,7 +10,7 @@ import { getArticleComments } from '../../model/slices/articleDetailsCommentsSli
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {

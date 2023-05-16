@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './RatingCard.module.scss';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
 import { Text, TextAlign } from '@/shared/ui/deprecated/Text/Text';
 import { Modal } from '@/shared/ui/deprecated/Modal/Modal';

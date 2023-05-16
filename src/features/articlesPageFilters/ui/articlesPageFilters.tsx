@@ -21,7 +21,7 @@ import { ArticleOrder } from '@/shared/types';
 import { Card } from '@/shared/ui/deprecated/Card/Card';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select/Select';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import cls from './articlesPageFilters.module.scss';
 
 interface ArticlePageFiltersProps {

@@ -38,7 +38,7 @@ export const ListBox = (props: ListBoxProps) => {
         direction = 'top right',
     } = props;
 
-    const directionClass = [directionClasses[direction]];
+    const directionClass = [directionClasses[direction], PopupCls.menu];
     return (
         <HStack gap="16">
             {label && <div>{label}</div>}

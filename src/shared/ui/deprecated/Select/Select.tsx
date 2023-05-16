@@ -1,7 +1,7 @@
 import { ChangeEvent, memo, useMemo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
-import { HStack } from '../Stack';
+import { HStack } from '../../redesigned/Stack';
 
 export interface SelectOption<T extends string> {
     value: T;

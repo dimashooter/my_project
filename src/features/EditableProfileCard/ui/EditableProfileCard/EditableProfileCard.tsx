@@ -23,7 +23,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { EditableProfileCardHeader } from '../EditableProfileHeader/EditableProfileCardHeader';
 import { ProfileRating } from '@/features/ProfileRating';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface EditableProfileCardProps {
     className?: string;

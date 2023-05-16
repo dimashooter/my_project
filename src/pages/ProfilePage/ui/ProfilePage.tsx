@@ -4,7 +4,7 @@ import { EditableProfileCard } from '@/features/EditableProfileCard/ui/EditableP
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page/Page';
 import { Text } from '@/shared/ui/deprecated/Text/Text';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { getFeatureFlag } from '@/shared/lib/features/setGetFeatures';
 
 interface ProfilePageProps {

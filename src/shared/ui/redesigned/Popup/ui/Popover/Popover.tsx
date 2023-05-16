@@ -14,7 +14,7 @@ interface HPopoverProps {
 export function HPopover(props: HPopoverProps) {
     const { classname, direction = 'bottom left', trigger, children } = props;
 
-    const optionClasses = [directionClasses[direction]];
+    const optionClasses = [directionClasses[direction], cls.menu];
 
     return (
         <Popover
