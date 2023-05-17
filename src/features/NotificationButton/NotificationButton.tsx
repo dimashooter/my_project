@@ -2,6 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { HPopover as PopoverDeprecated } from '@/shared/ui/deprecated/Popup';
+import NotificationIconDepreacted from '@/shared/assets/icons/NotificationDeprecated.svg';
 import NotificationIcon from '@/shared/assets/icons/Notification.svg';
 import { NotificationList } from '@/entities/Notification';
 import { detectDevice } from '@/shared/lib/helpers/detectDevice';
@@ -27,11 +28,11 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     }, []);
     const trigger = (
         <ToggleFeatures name='isAppRedesigned' on={
-            <Icon size={24} Svg={NotificationIcon} clickable
+            <Icon size={32} Svg={NotificationIcon} clickable
                 onClick={onShowDrawer} />
         } off={
             <ButtonDeprecated theme={ButtonTheme.CLEAR} onClick={onShowDrawer}>
-                <IconDeprecated Svg={NotificationIcon} inverted />
+                <IconDeprecated Svg={NotificationIconDepreacted} inverted />
             </ButtonDeprecated>} />
 
     );

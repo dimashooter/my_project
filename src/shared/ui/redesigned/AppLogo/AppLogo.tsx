@@ -12,7 +12,7 @@ export const AppLogo = memo((props: AppLogoProps) => {
   const { className, size = 30 } = props
   return (
     <HStack max justifyContent='center' className={classNames(cls.AppLogo, {}, [className])}>
-      <Appicon width={size} height={size} color='black' />
+      <Appicon width={size} height={size} color='black' className={cls.logo} />
       <div className={cls.gradientBig} />
       <div className={cls.gradientSmall} />
     </HStack>

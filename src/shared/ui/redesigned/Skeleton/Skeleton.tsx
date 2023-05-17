@@ -8,10 +8,6 @@ interface SkeletonProps {
     width?: string | number;
     border?: string;
 }
-/**
-    * use redesigned folder components
-    * @deprecated
-    */
 
 export const Skeleton = memo((props: SkeletonProps) => {
     const { className, height, width, border } = props;

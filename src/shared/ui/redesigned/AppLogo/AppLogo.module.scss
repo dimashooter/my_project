@@ -19,3 +19,8 @@
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
   ;
 }
+
+.logo {
+  position: relative;
+  z-index: 10;
+}

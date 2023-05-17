@@ -63,6 +63,8 @@ module.exports = {
                     'name',
                     'color',
                     'variant',
+                    'TextVariant',
+                    'align',
                 ],
             },
         ],

@@ -1,3 +1,21 @@
-.notSelected {
-    fill: var(--secondary-color);
+.ArticleViewSelectorRedesigned {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .notSelected {
+        fill: var(--light-bg-redesigned);
+    }
+}
+
+.ArticleViewSelector {
+    .notSelected {
+        fill: var(--secondary-color);
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

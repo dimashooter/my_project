@@ -20,13 +20,14 @@ interface TabsProps {
     * use redesigned folder components
     * @deprecated
     */
+
 export const Tabs = memo((props: TabsProps) => {
     const { className, onTabClick, tabs, value } = props;
     const onTabHandler = (tab: TabItem) => () => {
         onTabClick(tab);
     };
     return (
-        <HStack gap="16" className={classNames(cls.Tabs, {}, [className])}>
+        <HStack gap="16" className={classNames(cls.TabsRedesign, {}, [className])}>
             {tabs.map((tab) => (
                 <Card
                     className={cls.tab_card}

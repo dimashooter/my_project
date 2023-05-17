@@ -19,10 +19,21 @@
     display: flex;
     gap: 4px;
     padding: 0.5rem 1rem;
+    cursor: pointer;
 
     svg path {
         fill: var(--bg-color);
     }
+}
+
+
+.selected {
+    background: var(--light-bg-redesigned);
+    cursor: default
+}
+
+.disabled {
+    background: var(--bg-redesigned);
 }
 
 .ListItem.active {

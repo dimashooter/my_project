@@ -144,6 +144,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
+
                 <ProfileRating profileId={id} />
             </VStack>
         </DynamicModuleLoader>

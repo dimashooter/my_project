@@ -2,7 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox } from '@/shared/ui/redesigned/Popup';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popup';
 import { Currency } from '../../model/types/currency';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CurrencySelectProps {
     className?: string;
@@ -29,14 +31,30 @@ export const CurrencySelect = memo(
         );
 
         return (
-            <ListBox
-                label={t('Укажите валюту') || ''}
-                className={classNames('', {}, [className])}
-                value={value}
-                onChange={onChangeHandler}
-                items={options}
-                readonly={readonly}
+            <ToggleFeatures
+                name='isAppRedesigned'
+                on={
+                    <ListBox
+                        label={t('валюта') || ''}
+                        className={classNames('', {}, [className])}
+                        value={value}
+                        onChange={onChangeHandler}
+                        items={options}
+                        readonly={readonly}
+                    />
+                }
+                off={
+                    <ListBoxDeprecated
+                        label={t('Страна') || ''}
+                        className={classNames('', {}, [className])}
+                        value={value}
+                        onChange={onChangeHandler}
+                        items={options}
+                        readonly={readonly}
+                    />
+                }
             />
+
         );
     },
 );

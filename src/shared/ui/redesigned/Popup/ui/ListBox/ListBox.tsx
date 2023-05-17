@@ -1,32 +1,35 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import SelectIcon from '@/shared/assets/icons/done-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
+import Arrow from '@/shared/assets/icons/Arrow_horizontal.svg'
 import PopupCls from '../../styles/popup.module.scss';
 import { directionClasses, directionType } from '../../styles/variables';
+import { Icon } from '../../../Icon/Icon';
+import { Text } from '../../../Text/Text';
 
-type ListBoxItem = {
+type ListBoxItem<T extends string> = {
     content: ReactNode;
     value: string;
     disabled?: boolean;
 };
 
-interface ListBoxProps {
-    label?: string;
+interface ListBoxProps<T extends string> {
+    label: string;
     className?: string;
-    items?: ListBoxItem[];
-    value?: string;
+    items?: ListBoxItem<T>[];
+    value?: T;
     defaultValue?: string;
-    onChange: <T extends string>(value: T) => void;
+    onChange: (value: T) => void;
     readonly?: boolean;
     direction?: directionType;
 }
 
 
-export const ListBox = (props: ListBoxProps) => {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         items,
         defaultValue,
@@ -39,9 +42,13 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
 
     const directionClass = [directionClasses[direction], PopupCls.menu];
+
+    const selectedItem = useMemo(() => {
+        return items?.find(elem => elem.value === value)
+    }, [items, value])
+
     return (
-        <HStack gap="16">
-            {label && <div>{label}</div>}
+        <HStack gap="16" max alignItems='start'>
             <HListBox
                 disabled={readonly}
                 as="div"
@@ -49,9 +56,13 @@ export const ListBox = (props: ListBoxProps) => {
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button as="div" className={cls.button}>
-                    <Button>{value ?? defaultValue}</Button>
-                </HListBox.Button>
+                <HStack max gap='8'>
+                    <Text text={label} />
+                    <HListBox.Button as="div" className={cls.button}>
+                        <Button variant='filled' addonRight={<Icon Svg={Arrow} />} >
+                            {selectedItem?.content ?? defaultValue}</Button>
+                    </HListBox.Button>
+                </HStack>
                 <HListBox.Options
                     className={classNames(cls.ListItems, {}, directionClass)}
                 >
@@ -66,7 +77,12 @@ export const ListBox = (props: ListBoxProps) => {
                                 <li
                                     className={classNames(
                                         cls.ListItem,
-                                        { [cls.active]: active },
+                                        {
+                                            [cls.active]: active,
+                                            [cls.disabled]: item.disabled,
+                                            [cls.selected]: selected
+                                        },
+
                                         [],
                                     )}
                                 >

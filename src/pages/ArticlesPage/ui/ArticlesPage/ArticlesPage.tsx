@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -16,12 +15,13 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
-import {
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-} from '../../model/selectors/articlesPageSelectors';
+
+
 import { ArticlePageGreeting } from '@/pages/ArticlePageGreeting/ArticlePageGreeting';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyLayout } from '@/shared/layouts/StickyLayout';
+import { ViewSelectorContainer } from '../ViewSelector/ViewSelectorContainer';
+import { FilterSelectorContainer } from '../FilterSelectorContainer/FilterSelectorContainer';
 
 interface ArticlesPageProps {
     className?: string;
@@ -35,10 +35,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const sort = useSelector(getArticlesPageSort);
-    const order = useSelector(getArticlesPageOrder);
-    const search = useSelector(getArticlesPageSearch);
-
     const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
@@ -48,17 +44,38 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(initArticlesPage(searchParams));
     });
 
+    const content = <ToggleFeatures on={
+        <StickyLayout
+            left={<ViewSelectorContainer />}
+            content={
+                <Page
+                    data-testid='ArticlesPage'
+                    onScrollEnd={onLoadNextPart}
+                    className={classNames(cls.ArticlesPageRedesign, {}, [className])}
+                >
+                    <ArticleInfiniteList />
+                    <ArticlePageGreeting />
+                </Page>
+            }
+            right={<FilterSelectorContainer />}
+        />
+
+    } off={
+        <Page
+            data-testid='ArticlesPage'
+            onScrollEnd={onLoadNextPart}
+            className={classNames(cls.ArticlesPage, {}, [className])}
+        >
+            <ArticlePageFilters />
+            <ArticleInfiniteList />
+            <ArticlePageGreeting />
+        </Page>
+    } name='isAppRedesigned' />
+
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                data-testid='ArticlesPage'
-                onScrollEnd={onLoadNextPart}
-                className={classNames(cls.ArticlesPage, {}, [className])}
-            >
-                <ArticlePageFilters sort={sort} order={order} search={search} />
-                <ArticleInfiniteList />
-                <ArticlePageGreeting />
-            </Page>
+            {content}
         </DynamicModuleLoader>
     );
 };
