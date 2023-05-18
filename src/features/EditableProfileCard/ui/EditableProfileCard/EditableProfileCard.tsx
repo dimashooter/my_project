@@ -24,6 +24,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { EditableProfileCardHeader } from '../EditableProfileHeader/EditableProfileCardHeader';
 import { ProfileRating } from '@/features/ProfileRating';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -121,7 +122,12 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <VStack max gap="16" className={classNames('', {}, [className])}>
-                <EditableProfileCardHeader />
+                <ToggleFeatures
+                    name='isAppRedesigned'
+                    on={<></>}
+                    off={<EditableProfileCardHeader />}
+                />
+
                 {validateErrors?.length &&
                     validateErrors.map((err) => (
                         <Text

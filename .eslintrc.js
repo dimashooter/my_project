@@ -65,6 +65,7 @@ module.exports = {
                     'variant',
                     'TextVariant',
                     'align',
+                    'size',
                 ],
             },
         ],

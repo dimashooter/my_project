@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     transition: .3s;
+    text-decoration: none;
 
     &:hover {
         color: var(--accent-redesigned);
@@ -31,35 +32,36 @@
     border: none;
     background: none;
     outline: none;
-    color: var(--inverted-primary-color);
+    color: var(--hint-redesigned);
 }
 
 .outline {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid var(--icon-redesigned);
+    color: var(--accent-redesigned);
     background: none;
+    border-radius: 34px;
 }
 
 .outline_red {
-    border: 1px solid var(--red-light);
-    color: var(--red-light);
+    border: 1px solid var(--cancel-redesigned);
+    color: var(--cancel-redesigned);
     background: none;
 }
 
 .background {
     background: var(--bg-color);
-    color: var(--primary-color);
+    color: var(--accent-redesigned);
     border: none;
 }
 
 .backgroundInverted {
-    background: var(--inverted-bg-color);
-    color: var(--inverted-primary-color);
+    background: var(--accent-redesigned);
+    color: var(--hint-redesigned);
     border: none;
 }
 
 .filled {
-    background: var(--light-bg-redesigned);
+    background: var(--dark-bg-redesigned);
     border: none;
     outline: none;
     border-radius: 34px;

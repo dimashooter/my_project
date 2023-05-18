@@ -16,8 +16,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const { id } = useParams<{ id: string }>();
     const flag = getFeatureFlag('isArticleRatingEnable')
 
-    console.log('flag', flag);
-
     if (!id) {
         return <Text text={t('no_id')} />;
     }

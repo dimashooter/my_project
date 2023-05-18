@@ -35,7 +35,7 @@ export const CountrySelect = memo(
         return (
             <ToggleFeatures name='isAppRedesigned' on={
                 <ListBox
-                    direction="top right"
+                    direction="bottom right"
                     label={t('Укажите страну') || ''}
                     className={classNames('', {}, [className])}
                     value={value}

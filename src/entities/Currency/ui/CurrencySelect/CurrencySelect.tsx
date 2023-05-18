@@ -35,6 +35,7 @@ export const CurrencySelect = memo(
                 name='isAppRedesigned'
                 on={
                     <ListBox
+                        direction="top left"
                         label={t('валюта') || ''}
                         className={classNames('', {}, [className])}
                         value={value}

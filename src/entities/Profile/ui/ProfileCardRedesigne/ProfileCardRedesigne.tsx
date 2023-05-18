@@ -13,6 +13,7 @@ import { Input } from '@/shared/ui/redesigned/Input/Input';
 import { Card } from '@/shared/ui/redesigned/Card/Card';
 import { Text } from '@/shared/ui/redesigned/Text/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton/Skeleton';
+import { EditableProfileHeaderRedesigned } from '@/features/EditableProfileCard/ui/EditableProfileHeaderRedesigned/EditableProfileHeaderRedesigned';
 
 interface ProfileCardProps {
   className?: string;
@@ -107,11 +108,9 @@ export const ProfileCardRedesigne = (props: ProfileCardProps) => {
       padding='24'
       className={classNames(cls.ProfileCardRedesigne, {}, [className])}
     >
-      {data?.avatar && (
-        <HStack max justifyContent="center" className={cls.ProfileAvatar}>
-          <Avatar size={120} src={data?.avatar} />
-        </HStack>
-      )}
+      <EditableProfileHeaderRedesigned avatar={<Avatar className={cls.ProfileAvatar} size={120}
+        src={data?.avatar} />} />
+
 
       <HStack gap='24' max>
 
