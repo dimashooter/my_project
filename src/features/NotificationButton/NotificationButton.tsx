@@ -6,7 +6,7 @@ import NotificationIconDepreacted from '@/shared/assets/icons/NotificationDeprec
 import NotificationIcon from '@/shared/assets/icons/Notification.svg';
 import { NotificationList } from '@/entities/Notification';
 import { detectDevice } from '@/shared/lib/helpers/detectDevice';
-import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
 import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
@@ -28,7 +28,8 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     }, []);
     const trigger = (
         <ToggleFeatures name='isAppRedesigned' on={
-            <Icon size={32} Svg={NotificationIcon} clickable
+            <Icon size={32} Svg={NotificationIcon}
+                clickable
                 onClick={onShowDrawer} />
         } off={
             <ButtonDeprecated theme={ButtonTheme.CLEAR} onClick={onShowDrawer}>
@@ -48,11 +49,11 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                 </>
             ) : (
                 <ToggleFeatures name='isAppRedesigned' on={
-                    <HPopover direction="bottom left" trigger={trigger}>
+                    <HPopover direction="bottom right" trigger={trigger}>
                         <NotificationList />
                     </HPopover>
                 } off={
-                    <PopoverDeprecated direction="bottom left" trigger={trigger}>
+                    <PopoverDeprecated direction="bottom right" trigger={trigger}>
                         <NotificationList />
                     </PopoverDeprecated>
                 }

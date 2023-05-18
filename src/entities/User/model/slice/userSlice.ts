@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { UserSchema, User } from '../types/user';
-import { setFeatureFlags } from '@/shared/lib/features/setGetFeatures';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
 import { initAuthData } from '../services/initAuthData';
+import { setFeatureFlags } from '@/shared/lib/features';
 
 const initialState: UserSchema = {
     _inited: false,

@@ -7,12 +7,13 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text/Text';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { Text as TextDeprecated, TextAlign, TextSize } from '@/shared/ui/deprecated/Text/Text';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton/Skeleton';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { Icon } from '@/shared/ui/deprecated/Icon/Icon';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -26,6 +27,10 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text/Text';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
+import { Avatar } from '@/shared/ui/redesigned/Avatar/Avatar';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -44,6 +49,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
 
+
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned', on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated
+    })
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
             case ArticleBlockType.CODE:
@@ -100,40 +110,87 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         );
     } else if (error) {
         content = (
-            <Text
-                align={TextAlign.CENTER}
-                title={t('Произошла ошибка при загрузке статьи.')}
+            <ToggleFeatures
+                name='isAppRedesigned'
+                on={
+                    <Text
+                        align='center'
+                        title={t('Произошла ошибка при загрузке статьи.')}
+                    />
+                }
+                off={
+                    <TextDeprecated
+                        align={TextAlign.CENTER}
+                        title={t('Произошла ошибка при загрузке статьи.')}
+                    />
+                }
             />
+
         );
     } else {
         content = (
-            <>
-                <HStack max>
-                    <Avatar
-                        size={200}
-                        src={article?.img}
-                        className={cls.avatar}
-                    />
-                </HStack>
-                <VStack max gap='4' data-testid='ArticleDetails.Info'>
 
-                    <Text
-                        className={cls.title}
-                        title={article?.title}
-                        text={article?.subtitle}
-                        size={TextSize.L}
-                    />
-                    <HStack>
-                        <Icon className={cls.icon} Svg={EyeIcon} />
-                        <Text text={String(article?.views)} />
+            <ToggleFeatures
+                name='isAppRedesigned'
+                on={<>
+                    <HStack max>
+                        <Avatar
+                            size={200}
+                            src={article?.img}
+                            className={cls.avatar}
+                        />
                     </HStack>
-                    <HStack>
-                        <Icon className={cls.icon} Svg={CalendarIcon} />
-                        <Text text={article?.createdAt} />
-                    </HStack>
-                    {article?.blocks.map(renderBlock)}
-                </VStack>
-            </>
+                    <VStack max gap='4' data-testid='ArticleDetails.Info'>
+
+                        <Text
+                            className={cls.title}
+                            title={article?.title}
+                            text={article?.subtitle}
+                            size='l'
+                        />
+                        <HStack>
+                            <Icon className={cls.icon} Svg={EyeIcon} />
+                            <Text text={String(article?.views)} />
+                        </HStack>
+                        <HStack>
+                            <Icon className={cls.icon} Svg={CalendarIcon} />
+                            <Text text={article?.createdAt} />
+                        </HStack>
+                        {article?.blocks.map(renderBlock)}
+                    </VStack>
+                </>}
+                off={
+                    <>
+                        <HStack max>
+                            <AvatarDeprecated
+                                size={200}
+                                src={article?.img}
+                                className={cls.avatar}
+                            />
+                        </HStack>
+                        <VStack max gap='4' data-testid='ArticleDetails.Info'>
+
+                            <TextDeprecated
+                                className={cls.title}
+                                title={article?.title}
+                                text={article?.subtitle}
+                                size={TextSize.L}
+                            />
+                            <HStack>
+                                <IconDeprecated className={cls.icon} Svg={EyeIcon} />
+                                <Text text={String(article?.views)} />
+                            </HStack>
+                            <HStack>
+                                <IconDeprecated className={cls.icon} Svg={CalendarIcon} />
+                                <Text text={article?.createdAt} />
+                            </HStack>
+                            {article?.blocks.map(renderBlock)}
+                        </VStack>
+                    </>
+                }
+            />
+
+
         );
     }
 

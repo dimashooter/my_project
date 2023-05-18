@@ -1,0 +1,1 @@
+export {SettingsPageAsync as SettingsPage} from './SettingsPage/SettingsPage.async'

@@ -5,11 +5,11 @@ import cls from './RatingCard.module.scss';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
 import { Text, TextAlign } from '@/shared/ui/deprecated/Text/Text';
-import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal/Modal';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { detectDevice } from '@/shared/lib/helpers/detectDevice';
-import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
 import { Card } from '@/shared/ui/deprecated/Card/Card';
 
 interface RatingCardProps {

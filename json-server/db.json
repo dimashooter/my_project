@@ -950,6 +950,12 @@
       "userId": "4",
       "text": "test",
       "id": "BWiywIi"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "test",
+      "id": "-v0PEEP"
     }
   ],
   "users": [
@@ -983,7 +989,7 @@
         "isArticleRatingEnable": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisited": true,
         "settingsPageHasBeenOpen": true,
         "isArticlePageWasOpened": true

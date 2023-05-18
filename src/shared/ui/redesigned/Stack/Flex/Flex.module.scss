@@ -38,6 +38,18 @@
     flex-direction: row;
 }
 
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.wrap_reverse {
+    flex-wrap: wrap-reverse;
+}
+
 .gap4 {
     gap: 4px;
 }

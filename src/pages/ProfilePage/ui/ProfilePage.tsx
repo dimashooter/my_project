@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page/Page';
 import { Text } from '@/shared/ui/deprecated/Text/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { getFeatureFlag } from '@/shared/lib/features/setGetFeatures';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 interface ProfilePageProps {
     className?: string;

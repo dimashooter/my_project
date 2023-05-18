@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { MyDropdown, } from '@/shared/ui/redesigned/Popup';
 import { MyDropdown as DeprecatedDropdwon } from '@/shared/ui/deprecated/Popup';
-import { getRouteAdmin, getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteAdmin, getRouteProfile, getRouteSettings } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar/Avatar';
@@ -24,7 +24,9 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
     const items = useMemo(() => ([
-        ...(isAdmin ? [{ content: (t('Admin_panel')), href: getRouteAdmin() }] : []),
+        ...(isAdmin ? [{ content: (t('Admin_panel')), href: getRouteAdmin() },
+        { content: (t('user_settigns')), href: getRouteSettings() }
+        ] : []),
         {
             content: (t('user_profile')),
             href: getRouteProfile(authData!.id),
@@ -38,7 +40,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         <ToggleFeatures name='isAppRedesigned'
             on={
                 <MyDropdown
-                    direction="bottom left"
+                    direction="bottom right"
                     className={className}
                     items={items}
                     trigger={
@@ -48,7 +50,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             }
             off={
                 <DeprecatedDropdwon
-                    direction="bottom left"
+                    direction="bottom right"
                     className={className}
                     items={items}
                     trigger={

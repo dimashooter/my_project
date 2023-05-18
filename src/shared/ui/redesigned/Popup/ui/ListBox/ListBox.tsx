@@ -18,7 +18,7 @@ type ListBoxItem<T extends string> = {
 };
 
 interface ListBoxProps<T extends string> {
-    label: string;
+    label?: string | null | undefined;
     className?: string;
     items?: ListBoxItem<T>[];
     value?: T;
@@ -57,7 +57,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                 onChange={onChange}
             >
                 <HStack max gap='8'>
-                    <Text text={label} />
+                    {label && <Text text={label} />}
                     <HListBox.Button as="div" className={cls.button}>
                         <Button variant='filled' addonRight={<Icon Svg={Arrow} />} >
                             {selectedItem?.content ?? defaultValue}</Button>

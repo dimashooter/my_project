@@ -31,20 +31,19 @@ function App() {
     return (
         <ToggleFeatures
             name='isAppRedesigned'
-            on={<div className={classNames('app_redesigned', {}, [theme])}>
+            on={<div id='app' className={classNames('app_redesigned', {}, [theme])}>
                 <Suspense fallback="">
                     <div className="content-page">
                         <MainLayouts
                             Header={<Navbar />}
                             Content={<AppRouter />}
                             Sidebar={<Sidebar />}
-                            Toolbar={<p>test</p>}
                         />
                     </div>
                     <Toaster position="bottom-center" reverseOrder={false} />
                 </Suspense>
             </div>}
-            off={<div className={classNames('app', {}, [theme])}>
+            off={<div id='app' className={classNames('app', {}, [theme])}>
                 <Suspense fallback="">
                     <Navbar />
                     <div className="content-page">

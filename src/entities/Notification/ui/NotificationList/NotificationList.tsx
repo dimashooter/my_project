@@ -1,11 +1,14 @@
 import { memo, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useNotifications } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton/Skeleton';
 
 interface NotificationListProps {
     className?: string;
@@ -27,14 +30,32 @@ export const NotificationList = memo((props: NotificationListProps) => {
     }, [isError]);
     if (isLoading) {
         return (
-            <VStack
-                gap="16"
-                className={classNames(cls.NotificationList, mods, [className])}
-            >
-                <Skeleton width={500} height={80} border="8px" />
-                <Skeleton width={500} height={80} border="8px" />
-                <Skeleton width={500} height={80} border="8px" />
-            </VStack>
+
+            <ToggleFeatures
+                name='isAppRedesigned'
+                on={
+                    <VStack
+                        gap="16"
+                        className={classNames(cls.NotificationList, mods, [className])}
+                    >
+                        <Skeleton width={500} height={80} border="8px" />
+                        <Skeleton width={500} height={80} border="8px" />
+                        <Skeleton width={500} height={80} border="8px" />
+                    </VStack>
+
+
+                }
+                off={
+                    <VStack
+                        gap="16"
+                        className={classNames(cls.NotificationList, mods, [className])}
+                    >
+                        <SkeletonDeprecated width={500} height={80} border="8px" />
+                        <SkeletonDeprecated width={500} height={80} border="8px" />
+                        <SkeletonDeprecated width={500} height={80} border="8px" />
+                    </VStack>
+                }
+            />
         );
     }
 

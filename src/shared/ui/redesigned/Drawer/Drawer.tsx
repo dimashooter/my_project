@@ -5,9 +5,10 @@ import {
     AnimationProvider,
     useAnimationLibraries,
 } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../../deprecated/Overlay/Overlay';
 import cls from './Drawer.module.scss';
-import { Portal } from '../Portal/Portal';
+import { Portal } from '../../deprecated/Portal/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
     className?: string;
@@ -19,16 +20,12 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-/**
-    * use redesigned folder components
-    * @deprecated
-    */
+
 export const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationLibraries();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
     const { theme } = useTheme();
     const { className, children, onClose, isOpen, lazy } = props;
-    console.log(isOpen);
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });
@@ -84,12 +81,13 @@ export const DrawerContent = memo((props: DrawerProps) => {
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.Drawer, {}, [
                     className,
                     theme,
                     'app_drawer',
+                    toggleFeatures({ name: 'isAppRedesigned', on: () => cls.ModalNew, off: () => cls.ModalOld })
                 ])}
             >
                 <Overlay onClick={close} />

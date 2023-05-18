@@ -71,12 +71,15 @@
     }
 
     .collapseBtn {
-        color: var(--text-redesigned);
         position: absolute;
         right: 5px;
         bottom: 50%;
         transform: translateY(-50%) rotate(90deg);
         transition: .3s;
+
+        path {
+            fill: var(--hint-redesigned)
+        }
     }
 
 

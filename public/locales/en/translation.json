@@ -47,5 +47,7 @@
   "add": "add",
   "cancel": "cancel",
   "left_cooment": "Rate the article",
-  "left_feedback": "left a feedback please, it helps to  improve our adrticles"
+  "left_feedback": "left a feedback please, it helps to  improve our adrticles",
+  "user_settigns": "Settings",
+  "Variant_interface": "Interface variant"
 }
