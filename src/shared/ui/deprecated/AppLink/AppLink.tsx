@@ -14,7 +14,10 @@ interface AppLinkProps extends LinkProps {
     theme?: AppLinkTheme;
     children?: ReactNode;
 }
-
+/**
+    * use redesigned folder components
+    * @deprecated
+    */
 export const AppLink = memo((props: AppLinkProps) => {
     const {
         to,
@@ -24,10 +27,7 @@ export const AppLink = memo((props: AppLinkProps) => {
         ...otherProps
     } = props;
 
-    /**
-     * use redesigned folder components
-     * @deprecated
-     */
+
     return (
         <Link
             to={to}

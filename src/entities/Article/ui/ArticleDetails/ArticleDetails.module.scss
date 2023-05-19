@@ -26,3 +26,9 @@
     fill: var(--light-bg-redesigned);
     color: var(--accent-redesigned)
 }
+
+.img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+}

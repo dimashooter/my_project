@@ -956,6 +956,18 @@
       "userId": "1",
       "text": "test",
       "id": "-v0PEEP"
+    },
+    {
+      "articleId": "QjM9Ymg",
+      "userId": "1",
+      "text": "test",
+      "id": "PaNmNsD"
+    },
+    {
+      "articleId": "QjM9Ymg",
+      "userId": "1",
+      "text": "psot",
+      "id": "zNVfEZm"
     }
   ],
   "users": [
@@ -1103,6 +1115,31 @@
       "articleId": "8",
       "rate": 3,
       "id": "R42lhjY"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 3,
+      "id": "w-lOASm"
+    },
+    {
+      "userId": "1",
+      "articleId": "17",
+      "rate": 5,
+      "feedback": "",
+      "id": "xxOCR-q"
+    },
+    {
+      "userId": "1",
+      "articleId": "INdisbo",
+      "rate": 4,
+      "id": "6XYBC6t"
+    },
+    {
+      "userId": "1",
+      "articleId": "QjM9Ymg",
+      "rate": 3,
+      "id": "ar0lHL0"
     }
   ],
   "profile-ratings": [

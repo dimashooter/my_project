@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/views.svg';
 import { getRouteArticleDetails } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
 import cls from './ArticleListItemRedesigned.module.scss'
@@ -89,23 +89,23 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       to={getRouteArticleDetails(article.id)}
       className={classNames(cls.ArticleListItemRedesigned, {}, [className, cls[view]])}
     >
-      <Card padding='16' className={cls.card} >
+      <Card padding='0' border='semi' className={cls.card} >
         <AppImage
-          fallback={<Skeleton width={200} height={200} />}
-          Errorfallback={<Skeleton width={200} height={200} />}
+          fallback={<Skeleton width="100%" height={200} border='35px' />}
+          Errorfallback={<Skeleton width="100%" height={200} border='35px' />}
           alt={article.title}
           src={article.img}
           className={cls.img}
         />
-        <VStack gap='4'>
-          <Text text={article.title} className={cls.title} />
-          <VStack gap='4' max>
+        <VStack className={cls.padding} gap='4'>
+          <Text text={article.title} />
+          <VStack gap='4' max >
             <HStack justifyContent='between' max>
               <Text text={article.createdAt} />
               {views}
             </HStack>
             <HStack gap='4' max justifyContent='start'>
-              <Avatar size={32} src={article.user.avatar} />
+              <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
               <Text text={article.user.username} />
             </HStack>
           </VStack>

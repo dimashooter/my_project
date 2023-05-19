@@ -49,5 +49,9 @@
   "left_cooment": "Оцените статью",
   "left_feedback": "Оставьте плжалуйста комментарий, это поможет улучшить качество статей.",
   "user_settigns": "Настройки интерфейса",
-  "Variant_interface": "Вариант интерфейса"
+  "Variant_interface": "Вариант интерфейса",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотра",
+  "{{count}} views_many": "{{count}} просмотров"
 }

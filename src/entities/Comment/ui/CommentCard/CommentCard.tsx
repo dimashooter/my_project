@@ -1,13 +1,20 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
-import { Text } from '@/shared/ui/deprecated/Text/Text';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
-import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text/Text';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton/Skeleton';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
-import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card/Card';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card/Card';
+import { Avatar } from '@/shared/ui/redesigned/Avatar/Avatar';
+import { Text } from '@/shared/ui/redesigned/Text/Text';
+import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface CommentCardProps {
     className?: string;
@@ -18,6 +25,10 @@ interface CommentCardProps {
 export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
 
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned, off: () => SkeletonDeprecated
+    })
     if (isLoading) {
         return (
             <div
@@ -44,12 +55,32 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <Card max className={classNames(cls.CommentCard, {}, [className])} data-testid='CommentCard.Content'>
-            <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
-                {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
-                <Text className={cls.username} title={comment.user.username} />
-            </AppLink>
-            <Text className={cls.text} text={comment.text} />
-        </Card>
+        <ToggleFeatures
+            name='isAppRedesigned'
+            on={
+                <Card border='semi' padding='24' max
+                    className={classNames(cls.CommentCardRedesigne, {}, [className])}
+                    data-testid='CommentCard.Content'>
+                    <AppLink to={getRouteProfile(comment.user.id)} >
+                        <HStack max gap='8'>
+
+                            {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
+                            <Text title={comment.user.username} className={cls.username} />
+                        </HStack>
+                    </AppLink>
+                    <Text title={comment.text} bold size='s' />
+                </Card>
+            }
+            off={
+                <CardDeprecated max className={classNames(cls.CommentCard, {}, [className])}
+                    data-testid='CommentCard.Content'>
+                    <AppLinkDeprecated to={getRouteProfile(comment.user.id)} className={cls.header}>
+                        {comment.user.avatar ? <AvatarDeprecated size={30} src={comment.user.avatar} /> : null}
+                        <TextDeprecated className={cls.username} title={comment.user.username} />
+                    </AppLinkDeprecated>
+                    <TextDeprecated className={cls.text} text={comment.text} />
+                </CardDeprecated>
+            }
+        />
     );
 });

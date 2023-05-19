@@ -47,13 +47,7 @@
     width: 230px;
     transition: 0.2s;
     cursor: pointer;
-
-    .date {
-      position: absolute;
-      right: 0;
-      top: 0;
-      display: none;
-    }
+    overflow: hidden;
 
     &:hover {
       opacity: 0.8;
@@ -64,16 +58,19 @@
       }
     }
 
+
+
     .imageWrapper {
-      width: 200px;
+      width: 230px;
       height: 200px;
       position: relative;
     }
 
     .img {
-      width: 200px;
+      width: 230px;
       height: 200px;
       object-fit: cover;
+      border-radius: 35px 35px 0 0;
     }
 
     .infoWrapper {
@@ -104,4 +101,14 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
+
+  }
+
+  .avatar {
+    margin-left: 8px;
+  }
+
+  .padding {
+    padding: 8px;
   }

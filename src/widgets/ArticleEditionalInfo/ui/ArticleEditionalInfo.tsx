@@ -10,10 +10,11 @@ interface ArticleEditionalInfoProps {
   className?: string
   author: User,
   createdAt: string,
-  views: number
+  views: number,
+  onEdit: () => void
 }
 export const ArticleEditionalInfo = memo((props: ArticleEditionalInfoProps) => {
-  const { className, author, createdAt, views } = props
+  const { className, author, createdAt, views, onEdit } = props
   const { t } = useTranslation()
   return (
     <div className={className}>
@@ -24,9 +25,8 @@ export const ArticleEditionalInfo = memo((props: ArticleEditionalInfoProps) => {
           <Text text={author.username} bold />
           <Text text={createdAt} />
         </HStack>
-        <Button >{t('Редактировать')})</Button>
-        <Text text={t('просмотров')} />
-
+        <Button onClick={onEdit}>{t('Редактировать')})</Button>
+        <Text text={t('{{count}} views', { count: views })} />
       </VStack>
     </div>
   )

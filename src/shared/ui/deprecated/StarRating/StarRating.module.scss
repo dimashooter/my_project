@@ -1,16 +1,20 @@
 .star {
-    fill: transparent;
     transition: 0.4s linear;
     cursor: pointer;
 }
 
-.star path {
-    stroke: var(--inverted-bg-color);
-    stroke-width: 2px;
+.StarRating .hovered {
+    color: var(--primary-color);
 }
 
-.hovered {
-    fill: var(--inverted-bg-color);
+.StarRatingRedesigned .hovered {
+
+    color: var(--icon-redesigned);
+
+}
+
+.normal {
+    fill: none
 }
 
 .selected {

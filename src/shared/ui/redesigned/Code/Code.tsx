@@ -1,8 +1,9 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
+import CopyIcon from '@/shared/assets/icons/copyNEW.svg';
 import cls from './Code.module.scss';
 import { Button } from '../Button/Button';
+import { Icon } from '../Icon/Icon';
 
 interface CodeProps {
     className?: string;
@@ -23,7 +24,7 @@ export const Code = memo((props: CodeProps) => {
                 className={cls.copyBtn}
                 variant='clear'
             >
-                <CopyIcon className={cls.copyIcon} />
+                <Icon Svg={CopyIcon} className={cls.copyIcon} />
             </Button>
             <code>{text}</code>
         </pre>

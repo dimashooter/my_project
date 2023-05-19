@@ -9,6 +9,7 @@ import { AdminPanelPage } from '@/pages/AdminPanelPage/AdminPanelPage';
 import { UserRole } from '@/entities/User/model/types/user';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { SettingsPage } from '@/pages/SettingsPage/ui';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
@@ -22,6 +23,7 @@ export const getRouteArticles = () => '/articles';
 export const getRouteAdmin = () => '/admin';
 export const getRouteSettings = () => '/settings';
 export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleEdit = (id: string) => `/article/${id}`;
 export const getRouteForbidden = () => '/forbidden';
 export const getRouteNotFound = () => '*';
 
@@ -33,6 +35,7 @@ export enum AppRoutes {
     ARTICLE_DETAILS = 'article_details',
     ADMIN_PANEL = 'admin_panel',
     SETTINGS = 'settings',
+    ARTICLE_EDIT = `article`,
     // last
     NOT_FOUND = 'not_found',
     FORBIDDEN = 'forbidden',
@@ -43,9 +46,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ABOUT]: getRouteAbout(),
     [AppRoutes.PROFILE]: getRouteProfile(':id'), // + :id
     [AppRoutes.ARTICLES]: getRouteArticles(),
-
+    [AppRoutes.ARTICLE_EDIT]: getRouteArticleEdit(':id'), // +id
     [AppRoutes.ARTICLE_DETAILS]: getRouteArticleDetails(':id'), // + :id
-    // последний
     [AppRoutes.ADMIN_PANEL]: getRouteAdmin(),
     [AppRoutes.NOT_FOUND]: getRouteNotFound(),
     [AppRoutes.FORBIDDEN]: getRouteForbidden(),
@@ -65,6 +67,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLE_EDIT]: {
+        path: getRouteArticleEdit(':id'),
+        element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
@@ -88,6 +95,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: getRouteNotFound(),
         element: <NotFoundPage />,
     },
+
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
         element: <ForbiddenPage />,

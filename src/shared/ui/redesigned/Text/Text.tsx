@@ -11,9 +11,9 @@ export type TextSize = 's' | 'm' | 'l'
 export type HeaderTagsType = 'h1' | 'h2' | 'h3';
 
 const mapSizeToClass: Record<TextSize, string> = {
-    l: 'size_l',
-    m: 'size_m',
-    s: 'size_s',
+    l: cls.size_l,
+    m: cls.size_m,
+    s: cls.size_s,
 };
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagsType> = {

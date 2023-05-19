@@ -49,5 +49,7 @@
   "left_cooment": "Rate the article",
   "left_feedback": "left a feedback please, it helps to  improve our adrticles",
   "user_settigns": "Settings",
-  "Variant_interface": "Interface variant"
+  "Variant_interface": "Interface variant",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }
