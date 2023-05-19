@@ -1,3 +1,5 @@
+export { ArticleEditionalContainer } from './ui/ArticleEditionalContainer/ArticleEditionalContainer';
+
 export { articleDetailsRecommendationsReducer } from './model/slices/articleDetailsRecommendationSlice';
 
 export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';

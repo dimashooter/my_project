@@ -18,8 +18,6 @@ export const initAuthData = createAsyncThunk<
     }
     try {
         const response = await dispatch(getUserDataByIdQuery(userId)).unwrap()
-        console.log(response);
-        
         return response
     } catch (e) {
         console.log(e);

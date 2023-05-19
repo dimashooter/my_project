@@ -14,6 +14,9 @@ import { ArticleRecommendationList } from '@/features/articleRecommendationList'
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyLayout } from '@/shared/layouts/StickyLayout';
+import { ArticleEditionalContainer } from '../ArticleEditionalContainer/ArticleEditionalContainer';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -34,24 +37,38 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         navigate(getRouteArticles());
     }, [navigate]);
 
-
-    const counter = console.log('off')
-
     if (!id) {
         return null;
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
-                <ArticleDetails id={id} />
-                <ArticleRating articleId={id} />
-                <ArticleRecommendationList />
-                <ArticleDetailsComments id={id} />
-            </Page>
+            <ToggleFeatures
+                on={
+                    <StickyLayout
+                        content={
+                            <Page>
+                                <ArticleDetails id={id} />
+                                <ArticleRating articleId={id} />
+                                <ArticleRecommendationList />
+                                <ArticleDetailsComments id={id} />
+                            </Page>
+                        }
+                        right={<ArticleEditionalContainer />}
+                    />
+                }
+                off={<Page>
+                    <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                        {t('Назад к списку')}
+                    </Button>
+                    <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
+                    <ArticleRecommendationList />
+                    <ArticleDetailsComments id={id} />
+                </Page>}
+                name='isAppRedesigned'
+            />
+
         </DynamicModuleLoader>
     );
 };

@@ -1,8 +1,8 @@
 .Code {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-redesigned);
     padding: 20px;
     position: relative;
-    background: var(--code-bg);
+    background: var(--dark-bg-redesigned);
     overflow: auto;
 }
 
@@ -13,5 +13,5 @@
 }
 
 .copyIcon path {
-    stroke: var(--primary-color);
+    stroke: var(--accent-redesigned);
 }

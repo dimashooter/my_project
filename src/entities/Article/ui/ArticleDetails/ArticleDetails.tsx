@@ -140,20 +140,22 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                             className={cls.avatar}
                         />
                     </HStack>
-                    <VStack max gap='4' data-testid='ArticleDetails.Info'>
+                    <VStack max gap='8' data-testid='ArticleDetails.Info'>
 
                         <Text
+                            TextVariant='accent'
+                            align='center'
                             className={cls.title}
                             title={article?.title}
                             text={article?.subtitle}
                             size='l'
                         />
                         <HStack>
-                            <Icon className={cls.icon} Svg={EyeIcon} />
+                            <Icon className={cls.NewIcon} Svg={EyeIcon} />
                             <Text text={String(article?.views)} />
                         </HStack>
                         <HStack>
-                            <Icon className={cls.icon} Svg={CalendarIcon} />
+                            <Icon className={cls.NewIcon} Svg={CalendarIcon} />
                             <Text text={article?.createdAt} />
                         </HStack>
                         {article?.blocks.map(renderBlock)}
