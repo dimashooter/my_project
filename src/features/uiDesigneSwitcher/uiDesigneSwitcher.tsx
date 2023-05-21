@@ -37,7 +37,6 @@ export const UiDesigneSwitcher = memo((props: UiDesigneSwitcherProps) => {
     setIsLoading(false)
   }
 
-  console.log(isAppRedesigne);
 
   return (
     <HStack gap='16'>

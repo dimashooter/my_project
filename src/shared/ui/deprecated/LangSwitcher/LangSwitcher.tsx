@@ -13,7 +13,7 @@ interface LangSwitcherProps {
 
 
 export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
-    const { t, i18n } = useTranslation('main');
+    const { t, i18n } = useTranslation();
 
     const toggle = async () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -27,7 +27,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
                     variant='clear'
                     onClick={toggle}
                 >
-                    {t(short ? 'Короткий язык' : 'Язык')}
+                    {short ? t('short_language') : t('lang')}
                 </Button>
             }
             off={<ButtonDeprecated

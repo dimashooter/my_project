@@ -20,6 +20,9 @@ export const userSlice = createSlice({
             localStorage.setItem(
                 USER_LOCALSTORAGE_KEY, action.payload.id
             )
+            localStorage.setItem(
+                USER_LOCALSTORAGE_KEY, action.payload.features?.isAppRedesigned ? 'new' : 'old'
+            )
         },
         logout: (state) => {
             state.authData = undefined;

@@ -53,7 +53,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                         <NotificationList />
                     </HPopover>
                 } off={
-                    <PopoverDeprecated direction="bottom right" trigger={trigger}>
+                    <PopoverDeprecated direction="bottom left" trigger={trigger}>
                         <NotificationList />
                     </PopoverDeprecated>
                 }

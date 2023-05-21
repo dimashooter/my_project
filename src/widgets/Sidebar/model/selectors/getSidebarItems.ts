@@ -1,15 +1,16 @@
-import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from '@/entities/User';
+import { useSelector } from 'react-redux';
 import {
     getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile, getRouteSettings,
 } from '@/shared/config/routeConfig/routeConfig';
 import MainIcon from '@/shared/assets/icons/Home.svg';
 import ArticleIcon from '@/shared/assets/icons/doc.svg';
-import  AboutIcon from '@/shared/assets/icons/Info.svg';
+import AboutIcon from '@/shared/assets/icons/Info.svg';
 import ProfileIcon from '@/shared/assets/icons/Avatar.svg';
 import { SidebarItemType } from '../types/sidebar';
+import { getUserAuthData } from '@/entities/User';
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+export const useSidebarItems = () => {
+    const userData = useSelector(getUserAuthData)
     const sidebarItemsList: SidebarItemType[] = [
         {
             path: getRouteMain(),
@@ -26,7 +27,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     if (userData) {
         sidebarItemsList.push(
             {
-                path:  getRouteProfile(userData.id),
+                path: getRouteProfile(userData.id),
                 Icon: ProfileIcon,
                 text: 'Профиль',
                 authOnly: true,
@@ -47,4 +48,4 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     }
 
     return sidebarItemsList;
-});
+}

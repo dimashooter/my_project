@@ -51,5 +51,8 @@
   "user_settigns": "Settings",
   "Variant_interface": "Interface variant",
   "{{count}} views_one": "{{count}} view",
-  "{{count}} views_other": "{{count}} views"
+  "{{count}} views_other": "{{count}} views",
+  "short_language": "en",
+  "lang": "Английский",
+  "article_id": "Article id is:"
 }

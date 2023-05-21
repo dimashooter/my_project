@@ -16,3 +16,11 @@
 .button:hover .Icon {
     color: var(--accent-redesigned)
 }
+
+.clickable {
+    cursor: pointer;
+
+    &:hover {
+        color: var(--hint-redesigned);
+    }
+}

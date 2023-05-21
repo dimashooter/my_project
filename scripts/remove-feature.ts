@@ -67,7 +67,8 @@ const replaceToggleFunction = (node:Node) => {
     node.replaceWithText(offFunction?.getBody().getText() ?? '')
   }
 
-files.forEach((sourceFile) => { 
+  files.forEach((sourceFile) => { 
+  // eslint-disable-next-line consistent-return
   sourceFile.forEachDescendant((node) => {
     if(node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)){
         return replaceToggleFunction(node)
@@ -77,8 +78,8 @@ files.forEach((sourceFile) => {
          return replaceToggleFunction(node)
       }
       
+    })
   })
-})
-
+}
 project.save();
 

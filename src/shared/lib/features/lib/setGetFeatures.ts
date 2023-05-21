@@ -1,6 +1,13 @@
+import { LOCAL_STORAGE_LAST_THEME_KEY } from "@/app/providers/ThemeProvider/lib/ThemeContext";
 import { FeatureFlags } from "@/shared/types/featureFlags";
 
-let featureFlags: FeatureFlags = {}
+const defaultFeatures:FeatureFlags = {
+  isAppRedesigned: localStorage.getItem(LOCAL_STORAGE_LAST_THEME_KEY) === 'new'
+}
+
+let featureFlags: FeatureFlags = {
+  ...defaultFeatures
+}
 
 
 export const setFeatureFlags = (newFlag?:FeatureFlags) => { 
@@ -10,7 +17,7 @@ export const setFeatureFlags = (newFlag?:FeatureFlags) => {
 }
 
 export function getFeatureFlag(flag: keyof FeatureFlags){
-  return featureFlags?.[flag]  ?? true
+  return featureFlags?.[flag]  
 }
 
 export function getAllFeatureFlags(){

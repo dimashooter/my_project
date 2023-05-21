@@ -1,29 +1,41 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/app/providers/ThemeProvider';
+import { useTheme, withTheme } from '@/app/providers/ThemeProvider';
 import { AppRouter } from '@/app/providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageLoader } from '@/shared/ui/deprecated/PageLoader/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { MainLayouts } from '@/shared/layouts/MainLayouts';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { PageLoader } from '@/shared/ui/deprecated/PageLoader/PageLoader';
+import { MainLayout } from '@/shared/layouts/MainLayouts';
+import { useAppToolbar } from './lib/useAppToolbar/useAppToolbar';
 
-function App() {
+const App = memo(() => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
-        dispatch(initAuthData());
-    }, [dispatch]);
+        if (!inited) {
+            dispatch(initAuthData());
+        }
+    }, [dispatch, inited]);
 
     if (!inited) {
-        return < PageLoader />
-
+        return <ToggleFeatures
+            name='isAppRedesigned'
+            off={<PageLoader />}
+            on={
+                <div id='app' className={classNames('app_redesigned', {}, [theme])}>
+                    <AppLoaderLayout />
+                </div>
+            }
+        />
     }
 
 
@@ -34,10 +46,11 @@ function App() {
             on={<div id='app' className={classNames('app_redesigned', {}, [theme])}>
                 <Suspense fallback="">
                     <div className="content-page">
-                        <MainLayouts
-                            Header={<Navbar />}
-                            Content={<AppRouter />}
-                            Sidebar={<Sidebar />}
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={toolbar}
                         />
                     </div>
                     <Toaster position="bottom-center" reverseOrder={false} />
@@ -55,6 +68,6 @@ function App() {
             </div>}
         />
     );
-}
+})
 
-export default App;
+export default withTheme(App);

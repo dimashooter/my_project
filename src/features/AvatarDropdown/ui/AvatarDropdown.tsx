@@ -50,7 +50,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             }
             off={
                 <DeprecatedDropdwon
-                    direction="bottom right"
+                    direction="bottom left"
                     className={className}
                     items={items}
                     trigger={

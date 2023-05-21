@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ArticleListItem } from './ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
+import { FeatureFlagDecorator } from '@/shared/config/storybook/featureFlagDecorator/featureFlagDecorator';
 
 export default {
     title: 'entities/Article/ArticleListItem',
@@ -96,6 +97,14 @@ Big.args = {
     view: ArticleView.BIG,
     article,
 };
+
+
+export const BigRedesign = Template.bind({});
+BigRedesign.args = {
+    view: ArticleView.BIG,
+    article,
+};
+BigRedesign.decorators = [FeatureFlagDecorator({ isAppRedesigned: true })]
 
 export const Small = Template.bind({});
 Small.args = {
