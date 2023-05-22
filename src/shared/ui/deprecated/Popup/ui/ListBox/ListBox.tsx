@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import SelectIcon from '@/shared/assets/icons/done-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -39,6 +39,11 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
 
     const directionClass = [directionClasses[direction]];
+
+    const selectedItem = useMemo(() => {
+        return items?.find(item => item.value === value)
+    }, [items, value])
+
     return (
         <HStack gap="16">
             {label && <div>{label}</div>}
@@ -49,8 +54,8 @@ export const ListBox = (props: ListBoxProps) => {
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button as="div" className={cls.button}>
-                    <Button>{value ?? defaultValue}</Button>
+                <HListBox.Button as={Button} className={cls.button}>
+                    {selectedItem?.content ?? defaultValue}
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.ListItems, {}, directionClass)}

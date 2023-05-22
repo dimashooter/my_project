@@ -58,9 +58,9 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
             >
                 <HStack max gap='8'>
                     {label && <Text text={label} />}
-                    <HListBox.Button as="div" className={cls.button}>
-                        <Button variant='filled' addonRight={<Icon Svg={Arrow} />} >
-                            {selectedItem?.content ?? defaultValue}</Button>
+                    <HListBox.Button as={Button} className={cls.button} variant='filled'
+                        addonRight={<Icon Svg={Arrow} />}>
+                        {selectedItem?.content ?? defaultValue}
                     </HListBox.Button>
                 </HStack>
                 <HListBox.Options

@@ -53,16 +53,14 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   );
   return (
     <ToggleFeatures on={
-      <VStack gap='8' alignItems='start' className={classNames(cls.ArticleSortSelector, {}, [className])}>
+      <VStack gap='8' alignItems='start' className={classNames(cls.ArticleSortSelectorRedesign, {}, [className])}>
         <Text text={t('sort_by')} />
-        <ListBox direction='bottom right'
-          label={t('sort_by')}
+        <ListBox className={cls.listbox} direction='bottom right'
           items={sortOptions}
           onChange={onChangeSort}
           value={sort}
         />
-        <ListBox direction='bottom right'
-          label={t('order_by')}
+        <ListBox className={cls.listbox} direction='bottom right'
           items={orderOptions}
           onChange={onChangeOrder}
           value={order}
